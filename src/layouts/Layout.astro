@@ -1,0 +1,45 @@
+---
+import AnimatedFooter from '../components/AnimatedFooter.jsx';
+import Header from '../components/Header.jsx';
+import StacksGroup from '../components/StacksGroup.jsx';
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<StacksGroup />
+		<footer>
+			<AnimatedFooter />
+		</footer>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		/*#000814, #001D3D, #003566, #FFC300, #FFD60A*/
+		--background-gradient: linear-gradient(45deg, #000814 0%, #001D3D 25%, #003566 50%, #FFC300 75%, #FFD60A 100%);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: var(--background-gradient);
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>
