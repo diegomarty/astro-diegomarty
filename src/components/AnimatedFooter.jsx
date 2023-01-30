@@ -3,23 +3,23 @@ import DM_white from "../DM_White.svg";
 export default function AnimatedFooter() {
   return (
     <>
-      <footer aria-label="Site Footer" class="bg-gray-100 dark:bg-gray-900">
-        <div class="mx-auto max-w-xs px-4 py-16 sm:px-6 lg:px-8">
-          <div class="flex justify-center">
+      <footer aria-label="Site Footer" className="bg-gray-100 dark:bg-gray-900">
+        <div className="mx-auto max-w-xs px-4 py-16 sm:px-6 lg:px-8">
+          <div className="flex justify-center">
             <img src={DM_white} alt="DM logo footer" />
           </div>
 
-          <ul class="mt-12 flex justify-center gap-6 md:gap-8">
+          <ul className="mt-12 flex justify-center gap-6 md:gap-8">
             <li>
               <a
                 href="https://github.com/diegomarty"
                 rel="noreferrer"
                 target="_blank"
-                class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
               >
-                <span class="sr-only">GitHub</span>
+                <span className="sr-only">GitHub</span>
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -38,11 +38,11 @@ export default function AnimatedFooter() {
                 href="https://www.linkedin.com/in/diegomarty/"
                 rel="noreferrer"
                 target="_blank"
-                class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
               >
-                <span class="sr-only">LinkedIn</span>
+                <span className="sr-only">LinkedIn</span>
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
