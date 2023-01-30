@@ -9,7 +9,7 @@ export default function Header() {
             <a class="block text-teal-600 dark:text-teal-600" href="/">
               <span class="sr-only">Home</span>
 
-              <img src={DM_white} alt="DM logo" class="h-6" />
+              <img src={DM_white} alt="DM logo" className="h-6" />
             </a>
           </div>
 
