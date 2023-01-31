@@ -1,10 +1,11 @@
 ---
-import AnimatedFooter from '../components/AnimatedFooter.jsx';
-import Header from '../components/Header.jsx';
-import MyDescription from '../components/MyDescription.jsx';
-import StacksGroup from '../components/StacksGroup.jsx';
+import AnimatedFooter from "../components/AnimatedFooter.jsx";
+import Header from "../components/Header.jsx";
+import MyDescription from "../components/MyDescription.astro";
+import StacksGroup from "../components/StacksGroup.jsx";
+import TitleGradient from "../components/TitleGradient.astro";
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -12,34 +13,51 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="bg-gray-900 text-white">
-		<Header />
-		<MyDescription />
-		<StacksGroup />
-		<footer>
-			<AnimatedFooter />
-		</footer>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-900 text-white justify-center">
+    <Header />
+    <MyDescription />
+    <TitleGradient title="Some of my technologies" />
+    <StacksGroup />
+    <footer>
+      <AnimatedFooter />
+    </footer>
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-		--background-gradient: linear-gradient(45deg, #000814 0%, #001D3D 25%, #003566 50%, #FFC300 75%, #FFD60A 100%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: var(--background-gradient);
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%,
+      white 60%
+    );
+    --background-gradient: linear-gradient(
+      45deg,
+      #000814 0%,
+      #001d3d 25%,
+      #003566 50%,
+      #ffc300 75%,
+      #ffd60a 100%
+    );
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: var(--background-gradient);
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+  .bg-clip-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
 </style>

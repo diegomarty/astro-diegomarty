@@ -1,0 +1,80 @@
+<div class="pokeball"></div>
+
+<style>
+  .pokeball {
+    position: relative;
+    left: 70vmin;
+    top: -10vmin;
+    transform: translate(-15vmin, -10vmin);
+    background: transparent;
+    height: 2em;
+    width: 2em;
+    font-size: 0.3vmin;
+    color: #000000;
+    box-shadow: 2em 0 #000000, 4em 0 #000000, 6em 0 #000000, 8em 0 #000000,
+      -2em 2em #000000, 0em 2em #000000, 2em 2em #fb5f5f, 4em 2em #fb5f5f,
+      6em 2em #f42a2a, 8em 2em #f42a2a, 10em 2em #000000, 12em 2em #000000,
+      -4em 4em #000000, -2em 4em #fb5f5f, 0em 4em #fb5f5f, 2em 4em #fb5f5f,
+      4em 4em #fb5f5f, 6em 4em #f42a2a, 8em 4em #f42a2a, 10em 4em #f42a2a,
+      12em 4em #f42a2a, 14em 4em #000000, -6em 6em #000000, -4em 6em #fb5f5f,
+      -2em 6em #fb5f5f, 0em 6em #fb5f5f, 2em 6em #fb5f5f, 4em 6em #f42a2a,
+      6em 6em #f42a2a, 8em 6em #f42a2a, 10em 6em #f42a2a, 12em 6em #f42a2a,
+      14em 6em #dc1010, 16em 6em #000000, -6em 8em #000000, -4em 8em #fb5f5f,
+      -2em 8em #fb5f5f, 0em 8em #fb5f5f, 2em 8em #f42a2a, 4em 8em #f42a2a,
+      6em 8em #f42a2a, 8em 8em #f42a2a, 10em 8em #f42a2a, 12em 8em #f42a2a,
+      14em 8em #dc1010, 16em 8em #000000, -8em 10em #000000, -6em 10em #fb5f5f,
+      -4em 10em #fb5f5f, -2em 10em #fb5f5f, 0em 10em #f42a2a, 2em 10em #f42a2a,
+      4em 10em #f42a2a, 6em 10em #f42a2a, 8em 10em #f42a2a, 10em 10em #f42a2a,
+      12em 10em #dc1010, 14em 10em #dc1010, 16em 10em #dc1010, 18em 10em #000000,
+      -8em 12em #000000, -6em 12em #fb5f5f, -4em 12em #fb5f5f, -2em 12em #f42a2a,
+      0em 12em #f42a2a, 2em 12em #f42a2a, 4em 12em #000000, 6em 12em #000000,
+      8em 12em #f42a2a, 10em 12em #f42a2a, 12em 12em #dc1010, 14em 12em #dc1010,
+      16em 12em #dc1010, 18em 12em #000000, -8em 14em #000000, -6em 14em #000000,
+      -4em 14em #f42a2a, -2em 14em #f42a2a, 0em 14em #f42a2a, 2em 14em #000000,
+      4em 14em #ffffff, 6em 14em #58cde7, 8em 14em #000000, 10em 14em #dc1010,
+      12em 14em #dc1010, 14em 14em #dc1010, 16em 14em #000000, 18em 14em #000000,
+      -8em 16em #000000, -6em 16em #ffffff, -4em 16em #000000, -2em 16em #000000,
+      0em 16em #000000, 2em 16em #000000, 4em 16em #58cde7, 6em 16em #58cde7,
+      8em 16em #000000, 10em 16em #000000, 12em 16em #000000, 14em 16em #000000,
+      16em 16em #58cde7, 18em 16em #000000, -6em 18em #000000, -4em 18em #ffffff,
+      -2em 18em #ffffff, 0em 18em #ffffff, 2em 18em #ffffff, 4em 18em #000000,
+      6em 18em #000000, 8em 18em #ffffff, 10em 18em #58cde7, 12em 18em #58cde7,
+      14em 18em #58cde7, 16em 18em #000000, -6em 20em #000000, -4em 20em #ffffff,
+      -2em 20em #ffffff, 0em 20em #ffffff, 2em 20em #ffffff, 4em 20em #ffffff,
+      6em 20em #ffffff, 8em 20em #ffffff, 10em 20em #58cde7, 12em 20em #58cde7,
+      14em 20em #58cde7, 16em 20em #000000, -4em 22em #000000, -2em 22em #ffffff,
+      0em 22em #ffffff, 2em 22em #ffffff, 4em 22em #ffffff, 6em 22em #ffffff,
+      8em 22em #58cde7, 10em 22em #58cde7, 12em 22em #58cde7, 14em 22em #000000,
+      -2em 24em #000000, 0em 24em #000000, 2em 24em #ffffff, 4em 24em #ffffff,
+      6em 24em #58cde7, 8em 24em #58cde7, 10em 24em #000000, 12em 24em #000000,
+      2em 26em #000000, 4em 26em #000000, 6em 26em #000000, 8em 26em #000000;
+  }
+
+  .pokeball {
+    animation: shake 1s cubic-bezier(0.36, 0.1, 0.25, 0.93) infinite;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @keyframes shake {
+    20%,
+    90% {
+      transform: translate3d(0px, 0, 1px);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(-1px, 2px, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-2px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(4px, -1px, 0);
+    }
+  }
+</style>

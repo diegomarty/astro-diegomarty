@@ -1,0 +1,32 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="text-5xl font-extrabold text-center my-5">
+  <span
+    class="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900"
+  >
+    {title}
+  </span>
+</div>
+
+<style>
+
+  .text-gradient-yellow {
+    background-image: linear-gradient(
+      90deg,
+      #fbbf24 0%,
+      #38bdf8 50%,
+      #1e3a8a 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+    text-align: center;
+  }
+</style>
