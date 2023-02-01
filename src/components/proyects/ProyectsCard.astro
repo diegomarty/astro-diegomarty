@@ -1,0 +1,77 @@
+---
+import placeholderImg from "/150x150-2-500x500.png";
+
+export interface Props {
+  title: string;
+  body: string;
+  href: string;
+  image: string;
+}
+
+const { href, title, body, image } = Astro.props;
+---
+
+<div>
+	<article class="my-5 rounded-xl bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900 p-1 shadow-xl transition hover:animate-background hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s] dark:shadow-gray-700/25">
+		<div class="rounded-[10px] bg-white p-1 dark:bg-gray-900">
+		  <img src={image} alt={title} class=" max-h-96 mx-auto rounded-[10px]" />
+		</div>
+	  </article>
+
+	<div class="link-card">
+		<a href={href} target="_blank">
+    <div class="flex-auto ">
+	</div>
+    <h2>
+		{title}
+    </h2>
+    <p>
+      {body}
+    </p>
+</a>
+</div>
+</div>
+
+<style>
+  .link-card {
+    text-align: center;
+    list-style: none;
+    display: flex;
+    padding: 0.2rem;
+    background-color: white;
+    background-image: var(--background-gradient);
+    background-size: 400%;
+    border-radius: 0.5rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+
+  .link-card > a {
+    width: 100%;
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 1rem 1.3rem;
+    border-radius: 0.35rem;
+    color: #111;
+    background-color: white;
+    opacity: 0.8;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: #444;
+  }
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+  }
+  .link-card:is(:hover, :focus-within) h2 {
+    color: rgb(var(--background-gradient));
+  }
+</style>

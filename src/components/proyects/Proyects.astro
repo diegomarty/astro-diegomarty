@@ -1,0 +1,28 @@
+---
+import Card from "./ProyectsCard.astro";
+import TitleGradient from "../decoration/TitleGradient.astro";
+---
+
+<section id="proyects" class="my-36">
+  <div class="mx-auto max-w-screen-xl px-4">
+    <TitleGradient title="Some of my proyects" />
+    <div
+      class="mx-auto max-w-screen-xl px-4 flex items-center justify-center"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 m-10">
+        <Card
+          title="Hamabeads Shop"
+          body="PHP web app for selling Hama Beads."
+          href="https://www.hamabeadsshop.com/"
+          image="/public/HamaBeadsShop.jpg"
+        />
+        <Card
+          title="Next.js Proyect"
+          body="Next.js web app on development"
+          href="#"
+          image="/public/ProyectQr.jpg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
