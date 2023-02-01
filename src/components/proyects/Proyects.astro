@@ -1,6 +1,8 @@
 ---
 import Card from "./ProyectsCard.astro";
 import TitleGradient from "../decoration/TitleGradient.astro";
+import hamabeads from "../../../public/HamaBeadsShop.jpg";
+import proyectqr from "../../../public/ProyectQr.jpg";
 ---
 
 <section id="proyects" class="my-36">
@@ -14,13 +16,13 @@ import TitleGradient from "../decoration/TitleGradient.astro";
           title="Hamabeads Shop"
           body="PHP web app for selling Hama Beads."
           href="https://www.hamabeadsshop.com/"
-          image="/public/HamaBeadsShop.jpg"
+          image={hamabeads}
         />
         <Card
           title="Next.js Proyect"
           body="Next.js web app on development"
           href="#"
-          image="/public/ProyectQr.jpg"
+          image={proyectqr}
         />
       </div>
     </div>
