@@ -1,4 +1,6 @@
 ---
+import placeholderImg from '/150x150-2-500x500.png';
+
 export interface Props {
 	title: string;
 	body: string;
@@ -10,9 +12,18 @@ const { href, title, body } = Astro.props;
 
 <li class="link-card">
 	<a href={href}>
+		<div class="flex-auto">
+			<img
+					src={placeholderImg}
+					alt=""
+					width="150"
+					height="150"
+					style="float: left; margin-right: 1rem; margin-bottom: 1rem;"
+				/>
+
+		</div>
 		<h2>
 			{title}
-			<span>&rarr;</span>
 		</h2>
 		<p>
 			{body}
@@ -21,9 +32,10 @@ const { href, title, body } = Astro.props;
 </li>
 <style>
 	.link-card {
+		max-width: 250px;
 		list-style: none;
 		display: flex;
-		padding: 0.25rem;
+		padding: 0.20rem;
 		background-color: white;
 		background-image: var(--background-gradient);
 		background-size: 400%;
