@@ -4,7 +4,7 @@ import { SiJavascript, SiVisualstudiocode } from "react-icons/si";
 
 export default function MyStacks() {
   return (
-    <section id="stacks">
+    <>
       <div className="mx-auto max-w-screen-lg px-4 py-10 flex items-center align-middle justify-center">
         <Stack StackIcon={FaPhp} />
         <Stack StackIcon={FaSymfony} />
@@ -15,6 +15,6 @@ export default function MyStacks() {
         <Stack StackIcon={SiJavascript} />
         <Stack StackIcon={SiVisualstudiocode} />
       </div>
-    </section>
+    </>
   );
 }
