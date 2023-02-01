@@ -1,8 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import AnimatedFooter from "../components/AnimatedFooter.jsx";
+import Header from "../components/Header.jsx";
+import FirstView from "../components/FirstView.astro";
+import TitleGradient from "../components/TitleGradient.astro";
+import Proyects from "../components/Proyects.astro";
+import StacksComponent from "../components/StacksComponent.astro";
 ---
 
-<Layout title="Hi! Im DiegoMarty"></Layout>
+<Layout title="Hi! Im DiegoMarty">
+	<Header />
+    <FirstView />
+    <TitleGradient title="My proyects" />
+    <Proyects />
+    <StacksComponent />
+    <footer>
+      <AnimatedFooter />
+    </footer>
+</Layout>
 
 <style>
 	main {
