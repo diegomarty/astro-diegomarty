@@ -1,24 +1,23 @@
 ---
-import Pokeball from "./decoration/Pokeball.astro";
-import TitleGradient from "./TitleGradient.astro";
+import Pokeball from '../components/decoration/pokeball.astro'
 ---
 
 <section>
   <div
-    class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
+    class="mx-auto max-w-screen-xl px-4 py-32 flex h-screen items-center"
   >
     <div class="mx-auto max-w-3xl text-center">
       <h1
-        class="bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900 bg-clip-text text-6xl sm:text-7xl font-extrabold text-transparent py-3"
+        class="py-3 mx-8 bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900 bg-clip-text text-5xl sm:text-6xl font-extrabold text-transparent"
       >
         DiegoMarty <span class="block"> Web Developer</span>
       </h1>
 
-      <p class="mx-auto max-w-xl sm:text-xl sm:leading-relaxed">
+      <p class="mx-auto max-w-xl text-xl sm:leading-relaxed">
         Geek and programmer from time to time :)
       </p>
       <div class="mt-8 flex justify-center">
-        <a href="#stacks" class="inline-flex justify-center w-24 h-20 rounded-full">
+        <a href="#about" class="inline-flex justify-center w-24 h-20 rounded-full">
           <Pokeball />
         </a>
       </div>
