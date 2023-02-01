@@ -35,7 +35,7 @@ export default function AnimatedFooter() {
 
             <li>
               <a
-                href="https://www.linkedin.com/in/diegomarty/"
+                href="https://www.linkedin.com/in/diego-martin-sanchez-8902691a0/"
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
