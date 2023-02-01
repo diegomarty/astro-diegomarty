@@ -1,4 +1,4 @@
-import DM_white from "../DM_White.svg";
+import DM_white from "../../public/DM_White.svg";
 
 export default function Header() {
   return (
