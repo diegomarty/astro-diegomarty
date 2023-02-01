@@ -1,10 +1,10 @@
 import Stack from "./Stack";
-import { FaReact, FaGithub, FaSymfony, FaPhp, FaLaravel } from "react-icons/fa";
+import { FaReact, FaGithub, FaSymfony, FaPhp } from "react-icons/fa";
 import { SiJavascript, SiVisualstudiocode } from "react-icons/si";
 
 export default function MyStacks() {
   return (
-    <section>
+    <section id="stacks">
       <div className="mx-auto max-w-screen-lg px-4 py-10 flex items-center align-middle justify-center">
         <Stack StackIcon={FaPhp} />
         <Stack StackIcon={FaSymfony} />
