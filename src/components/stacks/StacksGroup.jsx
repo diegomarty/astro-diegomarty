@@ -1,6 +1,6 @@
 import Stack from "./Stack";
-import { FaReact, FaGithub, FaSymfony, FaPhp } from "react-icons/fa";
-import { SiJavascript, SiVisualstudiocode } from "react-icons/si";
+import { FaReact, FaGithub, FaSymfony, FaPhp } from "react-icons/fa/index";
+import { SiJavascript, SiVisualstudiocode } from "react-icons/si/index";
 
 export default function MyStacks() {
   return (
