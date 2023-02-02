@@ -1,0 +1,29 @@
+---
+import TitleGradient from "../decoration/TitleGradient.astro";
+import Me from "../../../public/Yo.jpg";
+---
+
+<section id="about" class="my-36">
+  <div class="mx-auto max-w-screen-xl px-4">
+    <TitleGradient title="Some of my proyects" />
+    <div class="mx-auto max-w-screen-xl px-4 flex items-center justify-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 m-10">
+        <div>
+          <img src={Me} alt="meAvatar" class="rounded-full w-80" />
+        </div>
+        <div>
+          <img
+            src="https://github.com/diegomarty.png"
+            alt="githubAvatar"
+            class="rounded-full w-80"
+          />
+        </div>
+        <div class="col-span-2">
+          <p class="mx-auto max-w-xl text-2xl sm:leading-relaxed text-center">
+            Geek and programmer from time to time :)
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
