@@ -1,10 +1,12 @@
 import Stack from "./Stack";
-import { FaReact, FaGithub, FaSymfony, FaPhp } from "react-icons/fa/index";
-import { SiJavascript, SiVisualstudiocode } from "react-icons/si/index";
+import { FaReact, FaGithub, FaSymfony, FaPhp, FaDocker } from "react-icons/fa/index";
+import { SiJavascript, SiVisualstudiocode, SiNextdotjs } from "react-icons/si/index";
+import AstroLogo from "../../../public/svgs/AstroLogo.svg";
 
 export default function MyStacks() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 ">
+      
       <div className="mx-auto">
         <Stack StackIcon={FaPhp} />
       </div>
@@ -22,8 +24,19 @@ export default function MyStacks() {
         <Stack StackIcon={SiJavascript} />
       </div>
       <div className="mx-auto">
+        <Stack StackIcon={SiNextdotjs} />
+      </div>
+
+      <div className="mx-auto">
         <Stack StackIcon={SiVisualstudiocode} />
       </div>
+      <div className="mx-auto">
+        <Stack image={AstroLogo} />
+      </div>
+      <div className="mx-auto">
+        <Stack StackIcon={FaDocker} />
+      </div>
+
     </div>
   );
 }
