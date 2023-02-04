@@ -1,6 +1,6 @@
 ---
 import TitleGradient from "../decoration/TitleGradient.astro";
-import Me from "/Yo.jpg";
+import Me from "/Yo.webp";
 import RRSS from "./RRSS.astro";
 ---
 
@@ -10,13 +10,14 @@ import RRSS from "./RRSS.astro";
     <div class="mx-auto max-w-screen-xl px-4 flex items-center justify-center">
       <div class="grid grid-cols-2 gap-8 sm:gap-16 m-10">
         <div>
-          <img src={Me} alt="meAvatar" class="rounded-full w-80" />
+          <img src={Me} alt="meAvatar" class="rounded-full w-80" width="320px" height="320px" />
         </div>
         <div>
           <img
             src="https://github.com/diegomarty.png"
             alt="githubAvatar"
             class="rounded-full w-80"
+            width="320px" height="320px"
           />
         </div>
         <div class="col-span-2">
