@@ -1,14 +1,6 @@
 ---
-import LogoAstro from '../../public/svgs/AstroLogo.svg'
-import LogoCode from '../../public/svgs/Code.svg'
-import LogoDocker from '../../public/svgs/Docker.svg'
-import LogoGithub from '../../public/svgs/Github.svg'
-import LogoJs from '../../public/svgs/Js.svg'
-import LogoNext from '../../public/svgs/NextJs.svg'
-import LogoPhp from '../../public/svgs/Php.svg'
-import LogoReact from '../../public/svgs/React.svg'
-import LogoSymfony from '../../public/svgs/Symfony.svg'
-import LogoVsCode from '../../public/svgs/VsCode.svg'
+import ParticleStacksBackgroud from "../components/Particles/ParticleStacksBackgroud.astro";
+
 export interface Props {
   title: string;
 }
@@ -21,25 +13,14 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content="DiegoMarty website make with Astro" />
   </head>
-  <body class="bg-gray-900 text-white w-full ">
-      <slot />
-      <ul class="circles">
-        <li><img src={LogoAstro}></li>
-        <li><img src={LogoCode}></li>
-        <li><img src={LogoDocker}></li>
-        <li><img src={LogoGithub}></li>
-        <li><img src={LogoJs}></li>
-        <li><img src={LogoNext}></li>
-        <li><img src={LogoPhp}></li>
-        <li><img src={LogoReact}></li>
-        <li><img src={LogoSymfony}></li>
-        <li><img src={LogoVsCode}></li>
-      </ul>
+  <body class="bg-gray-900 text-white w-full">
+    <slot />
+    <ParticleStacksBackgroud />
   </body>
 </html>
 <style is:global>
@@ -56,6 +37,7 @@ const { title } = Astro.props;
   html {
     font-family: system-ui, sans-serif;
     background-color: var(--background-gradient);
+    scroll-behavior: smooth;
   }
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
@@ -66,121 +48,3 @@ const { title } = Astro.props;
     -webkit-background-clip: text;
   }
 </style>
-
-<style>
-
-  .circles{
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-  }
-  
-  .circles li{
-      position: absolute;
-      display: block;
-      list-style: none;
-      width: 20px;
-      height: 20px;
-      animation: animate 25s linear infinite;
-      bottom: -150px;
-      z-index: 0;
-      filter: drop-shadow(1.5px 1.5px 1.5px rgb(255 255 255 / 0.2));
-  }
-  
-  .circles li:nth-child(1){
-      left: 25%;
-      width: 25px;
-      height: 25px;
-      animation-delay: 0s;
-  }
-  
-  
-  .circles li:nth-child(2){
-      left: 10%;
-      width: 20px;
-      height: 20px;
-      animation-delay: 2s;
-      animation-duration: 12s;
-  }
-  
-  .circles li:nth-child(3){
-      left: 70%;
-      width: 20px;
-      height: 20px;
-      animation-delay: 4s;
-  }
-  
-  .circles li:nth-child(4){
-      left: 40%;
-      width: 30px;
-      height: 30px;
-      animation-delay: 0s;
-      animation-duration: 18s;
-  }
-  
-  .circles li:nth-child(5){
-      left: 65%;
-      width: 20px;
-      height: 20px;
-      animation-delay: 0s;
-  }
-  
-  .circles li:nth-child(6){
-      left: 75%;
-      width: 15px;
-      height: 15px;
-      animation-delay: 3s;
-  }
-  
-  .circles li:nth-child(7){
-      left: 35%;
-      width: 25px;
-      height: 25px;
-      animation-delay: 7s;
-  }
-  
-  .circles li:nth-child(8){
-      left: 50%;
-      width: 25px;
-      height: 25px;
-      animation-delay: 15s;
-      animation-duration: 45s;
-  }
-  
-  .circles li:nth-child(9){
-      left: 20%;
-      width: 25px;
-      height: 25px;
-      animation-delay: 2s;
-      animation-duration: 35s;
-  }
-  
-  .circles li:nth-child(10){
-      left: 85%;
-      width: 20px;
-      height: 20px;
-      animation-delay: 0s;
-      animation-duration: 11s;
-  }
-  
-  
-  
-  @keyframes animate {
-  
-      0%{
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
-          border-radius: 0;
-      }
-  
-      100%{
-          transform: translateY(-1000px) rotate(720deg);
-          opacity: 0;
-          border-radius: 50%;
-      }
-  
-  }
-  </style>
