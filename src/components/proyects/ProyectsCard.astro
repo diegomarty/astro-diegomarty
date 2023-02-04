@@ -12,7 +12,7 @@ const { href, title, body, image } = Astro.props;
 <div>
 	<article class="my-5 rounded-xl bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900 p-1 shadow-xl transition hover:animate-background hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s] dark:shadow-gray-700/25">
 		<div class="rounded-[10px] bg-white p-1 dark:bg-gray-900">
-		  <img src={image} alt={title} class=" max-h-96 mx-auto rounded-[10px]" />
+		  <img src={image} alt={title} class=" max-h-96 mx-auto rounded-[10px]" loading="lazy" />
 		</div>
 	  </article>
 
