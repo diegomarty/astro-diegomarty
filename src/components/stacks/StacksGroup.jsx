@@ -33,7 +33,7 @@ export default function MyStacks() {
       <div className="mx-auto">
         <Stack image={AstroLogo} />
       </div>
-      <div className="mx-auto">
+      <div className="mx-auto col-span-2 md:col-span-1">
         <Stack StackIcon={FaDocker} />
       </div>
 
