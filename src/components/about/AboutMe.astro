@@ -1,13 +1,14 @@
 ---
 import TitleGradient from "../decoration/TitleGradient.astro";
 import Me from "../../../public/Yo.jpg";
+import RRSS from "./RRSS.astro";
 ---
 
 <section id="about" class="my-36">
   <div class="mx-auto max-w-screen-xl px-4">
     <TitleGradient title="About me" />
     <div class="mx-auto max-w-screen-xl px-4 flex items-center justify-center">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 m-10">
+      <div class="grid grid-cols-2 gap-8 sm:gap-16 m-10">
         <div>
           <img src={Me} alt="meAvatar" class="rounded-full w-80" />
         </div>
@@ -22,6 +23,7 @@ import Me from "../../../public/Yo.jpg";
           <p class="mx-auto max-w-xl text-2xl sm:leading-relaxed text-center">
             Geek and programmer from time to time :)
           </p>
+          <RRSS />
         </div>
       </div>
     </div>
