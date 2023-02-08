@@ -1,7 +1,7 @@
 import Stack from "./Stack";
 import { FaReact, FaGithub, FaSymfony, FaPhp, FaDocker } from "react-icons/fa/index";
 import { SiJavascript, SiVisualstudiocode, SiNextdotjs } from "react-icons/si/index";
-import AstroLogo from "../../../public/svgs/AstroLogo.svg";
+import AstroLogo from "/svgs/AstroLogo.svg";
 
 export default function MyStacks() {
   return (

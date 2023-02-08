@@ -1,5 +1,5 @@
 ---
-import ParticleStacksBackgroud from "../components/particles/ParticleStacksBackgroud.astro";
+import ParticleStacksBackgroud from "../components/Particles/ParticleStacksBackgroud.astro";
 import { SEO } from "astro-seo";
 ---
 
@@ -16,7 +16,6 @@ import { SEO } from "astro-seo";
     />
     <meta name="robots" content="index, follow" />
     <SEO
-      title="Hi! Im DiegoMarty"
       description="Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo."
       openGraph={{
         basic: {
@@ -28,6 +27,9 @@ import { SEO } from "astro-seo";
         optional: {
           description: "Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo.",
           siteName: "DiegoMarty - Mi sitio web",
+        },
+        image:{
+          alt: "DiegoMarty - Mi sitio web",
         }        
       }}
       twitter={{
