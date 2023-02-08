@@ -10,24 +10,34 @@ const { href, title, body, image } = Astro.props;
 ---
 
 <div>
-	<article class="my-5 rounded-xl bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900 p-1 shadow-xl transition hover:animate-background hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s] shadow-gray-700/25">
-		<div class="rounded-[10px] bg-gray-900 p-1 ">
-		  <img src={image} alt={title} class=" max-h-96 mx-auto rounded-[10px]" loading="lazy" width="300px" height="385px" />
-		</div>
-	  </article>
+  <article
+    class="my-5 rounded-xl bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900 p-1 shadow-xl transition hover:animate-background hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s] shadow-gray-700/25"
+  >
+  <div class="rounded-[10px] bg-gray-900 p-1">
+     <a href={href} target="_blank"> 
+      <img
+        src={image}
+        alt={title}
+        class="max-h-96 mx-auto rounded-[10px]"
+        loading="lazy"
+        width="300px"
+        height="385px"
+      />
+    </a>
+  </div>
+  </article>
 
-	<div class="link-card">
-		<a href={href} target="_blank">
-    <div class="flex-auto ">
-	</div>
-    <h2>
-		{title}
-    </h2>
-    <p>
-      {body}
-    </p>
-</a>
-</div>
+  <div class="link-card">
+    <a href={href} target="_blank">
+      <div class="flex-auto"></div>
+      <h2>
+        {title}
+      </h2>
+      <p>
+        {body}
+      </p>
+    </a>
+  </div>
 </div>
 
 <style>
