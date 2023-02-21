@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Prettify code
-        run: creyD/prettier_action@v4.2
+        run: creyD/prettier_action@v4.3
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
