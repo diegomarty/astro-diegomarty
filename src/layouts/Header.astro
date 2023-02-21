@@ -4,7 +4,7 @@ import DM_white from "/DM_White.svg";
 
 <header aria-label="Site Header" class="bg-gray-900">
   <div
-    class="mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 fixed top-0 bg-gray-900 z-50 opacity-95"
+    class="mx-auto w-full md:fixed relative top-0 px-4 sm:px-6 lg:px-8 py-6 bg-gray-900 z-50 opacity-95"
   >
     <div class="flex h-16 items-center justify-between">
       <div class="md:flex md:items-center md:gap-12">
@@ -26,7 +26,7 @@ import DM_white from "/DM_White.svg";
           <ul class="flex items-center gap-6 text-sm">
             <li>
               <a
-                class="transition text-white hover:text-white/75 p-2 active"
+                class="transition text-white hover:text-amber-400/75 p-2 active"
                 href="#home"
               >
                 Home
@@ -34,7 +34,7 @@ import DM_white from "/DM_White.svg";
             </li>
             <li>
               <a
-                class="transition text-white hover:text-white/75 p-2"
+                class="transition text-white hover:text-amber-400/75 p-2"
                 href="#about"
               >
                 About
@@ -43,7 +43,7 @@ import DM_white from "/DM_White.svg";
 
             <li>
               <a
-                class="transition text-white hover:text-white/75 p-2"
+                class="transition text-white hover:text-amber-400/75 p-2"
                 href="#stacks"
               >
                 Stacks
@@ -51,7 +51,7 @@ import DM_white from "/DM_White.svg";
             </li>
             <li>
               <a
-                class="transition text-white hover:text-white/75 p-2"
+                class="transition text-white hover:text-amber-400/75 p-2"
                 href="#proyects"
               >
                 Proyects
@@ -74,23 +74,35 @@ import DM_white from "/DM_White.svg";
         class="flex items-center justify-center gap-6 text-sm bg-slate-800 p-4 rounded-lg opacity-90"
       >
         <li>
-          <a class="movil transition text-white hover:text-white/75 active" href="#home">
+          <a
+            class="movil transition text-white hover:text-amber-400/75 active"
+            href="#home"
+          >
             Home
           </a>
         </li>
         <li>
-          <a class="movil transition text-white hover:text-white/75" href="#about">
+          <a
+            class="movil transition text-white hover:text-amber-400/75"
+            href="#about"
+          >
             About
           </a>
         </li>
 
         <li>
-          <a class="movil transition text-white hover:text-white/75" href="#stacks">
+          <a
+            class="movil transition text-white hover:text-amber-400/75"
+            href="#stacks"
+          >
             Stacks
           </a>
         </li>
         <li>
-          <a class="movil transition text-white hover:text-white/75" href="#proyects">
+          <a
+            class="movil transition text-white hover:text-amber-400/75"
+            href="#proyects"
+          >
             Proyects
           </a>
         </li>
@@ -120,8 +132,8 @@ import DM_white from "/DM_White.svg";
     -webkit-backdrop-filter: blur(10px);
   }
 
-  nav a.active{
-    color : #FCA311;
+  nav a.active {
+    color: #fca311;
     font-weight: 600;
   }
   nav a.active::before {
@@ -186,10 +198,11 @@ import DM_white from "/DM_White.svg";
         const sections = document.querySelectorAll("section");
         const menuLinks = document.querySelectorAll("nav ul li a");
         const currentY = window.pageYOffset;
-
         sections.forEach((section, index) => {
-          const sectionTop = section.getBoundingClientRect().top + currentY;
-          const sectionBottom = sectionTop + section.offsetHeight;
+          let sectionTop = section.getBoundingClientRect().top + currentY;
+          sectionTop = sectionTop != 0 ? sectionTop - 100 : sectionTop;
+          let sectionBottom = sectionTop + section.offsetHeight;
+          sectionBottom = sectionBottom - 100;
 
           if (currentY >= sectionTop && currentY < sectionBottom) {
             menuLinks.forEach((menuLink) => {
