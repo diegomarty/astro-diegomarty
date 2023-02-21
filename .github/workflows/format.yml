@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Prettify code
-        run: creyD/prettier_action@v4.3
+        uses: creyD/prettier_action@v4.3
         with:
           prettier_options: --write **/*.{js,md}
       - name: Commit changes
