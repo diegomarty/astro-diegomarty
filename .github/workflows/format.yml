@@ -17,21 +17,21 @@ jobs:
           ref: ${{ github.head_ref }}
           # Needs access to push to main
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2.2.1
+      - name: Checkout Node
+        uses: actions/checkout@v3
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
+          cache: 'npm'
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Format code
-        run: pnpm run format:ci
+        run: npm run format:ci
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: '[ci] format'
+          commit_message: '💚 Code format'
           branch: ${{ github.head_ref }}
-          commit_user_name: fredkbot
-          commit_user_email: fred+astrobot@astro.build
+          commit_user_name: DiegoMarty
+          commit_user_email: contacto@diegomarty.com
