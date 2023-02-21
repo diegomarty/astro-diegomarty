@@ -3,22 +3,38 @@ import DM_white from "/DM_White.svg";
 ---
 
 <header aria-label="Site Header" class="bg-gray-900">
-  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+  <div
+    class="mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 fixed top-0 bg-gray-900 z-50 opacity-95"
+  >
     <div class="flex h-16 items-center justify-between">
       <div class="md:flex md:items-center md:gap-12">
         <a class="block text-white" href="/">
           <span class="sr-only">Home</span>
 
-          <img src={DM_white} alt="DM logo" class="h-6" width="163px" height="24px" />
+          <img
+            src={DM_white}
+            alt="DM logo"
+            class="h-6"
+            width="163px"
+            height="24px"
+          />
         </a>
       </div>
 
-      <div class="hidden md:block">
+      <div class="hidden md:block justify-end">
         <nav aria-label="Site Nav">
           <ul class="flex items-center gap-6 text-sm">
             <li>
               <a
-                class="transition text-white hover:text-white/75"
+                class="transition text-white hover:text-white/75 p-2"
+                href="#home"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                class="transition text-white hover:text-white/75 p-2"
                 href="#about"
               >
                 About
@@ -27,7 +43,7 @@ import DM_white from "/DM_White.svg";
 
             <li>
               <a
-                class="transition text-white hover:text-white/75"
+                class="transition text-white hover:text-white/75 p-2"
                 href="#stacks"
               >
                 Stacks
@@ -35,7 +51,7 @@ import DM_white from "/DM_White.svg";
             </li>
             <li>
               <a
-                class="transition text-white hover:text-white/75"
+                class="transition text-white hover:text-white/75 p-2"
                 href="#proyects"
               >
                 Proyects
@@ -46,4 +62,143 @@ import DM_white from "/DM_White.svg";
       </div>
     </div>
   </div>
+  <div
+    class="md:hidden hidden fixed bottom-5 items-center w-full justify-center fade-in-out z-10 glassmorphism"
+    id="movile-menu"
+  >
+    <nav
+      aria-label="Site Nav movile"
+      class="glassmorphism md:bg-transparent md:dark:bg-transparent md:backdrop-blur-none fixed md:static bottom-4 z-30 left-1/2 md:left-auto transform -translate-x-1/2 md:transform-none bg-bglight dark:bg-carddark dark:text-textlight w-11/12 rounded drop-shadow-lg md:drop-shadow-none"
+    >
+      <ul
+        class="flex items-center justify-center gap-6 text-sm bg-slate-800 p-4 rounded-lg opacity-90"
+      >
+        <li>
+          <a class="movil transition text-white hover:text-white/75" href="#home">
+            Home
+          </a>
+        </li>
+        <li>
+          <a class="movil transition text-white hover:text-white/75" href="#about">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a class="movil transition text-white hover:text-white/75" href="#stacks">
+            Stacks
+          </a>
+        </li>
+        <li>
+          <a class="movil transition text-white hover:text-white/75" href="#proyects">
+            Proyects
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<style>
+  .fade-in-out {
+    animation: fadeIn ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .glassmorphism {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  nav a.active{
+    color : #FCA311;
+    font-weight: 600;
+  }
+  nav a.active::before {
+    content: "";
+    background-image: url("../../public/svgs/PokeballActive.svg");
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    margin-top: -5px;
+    margin-left: -16px;
+    rotate: -35deg;
+    opacity: 0.3;
+    transition: all 0.3s ease-in-out;
+  }
+</style>
+
+<script>
+  function mostrarMovileMenuEnScroll() {
+    const navDiv = document.getElementById("movile-menu");
+    window.addEventListener("scroll", function () {
+      const scrollPosition = window.scrollY;
+
+      if (navDiv !== null) {
+        if (scrollPosition >= 400) {
+          navDiv.classList.remove("hidden");
+          navDiv.classList.add("flex");
+        } else {
+          navDiv.classList.remove("block");
+          navDiv.classList.add("hidden");
+        }
+      }
+
+      const sections = document.querySelectorAll("section");
+      const menuLinks = document.querySelectorAll("nav ul li a.movil");
+      console.log(menuLinks);
+      const currentY = window.pageYOffset;
+
+      sections.forEach((section, index) => {
+        const sectionTop = section.getBoundingClientRect().top + currentY;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (currentY >= sectionTop && currentY < sectionBottom) {
+          menuLinks.forEach((menuLink) => {
+            menuLink.classList.remove("active");
+          });
+          menuLinks[index].classList.add("active");
+        }
+      });
+    });
+  }
+
+  window.onload = function () {
+    let windowSize = window.innerWidth;
+    window.addEventListener("resize", function () {
+      windowSize = window.innerWidth;
+    });
+
+    if (windowSize <= 768) {
+      mostrarMovileMenuEnScroll();
+    } else {
+      window.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll("section");
+        const menuLinks = document.querySelectorAll("nav ul li a");
+        const currentY = window.pageYOffset;
+
+        sections.forEach((section, index) => {
+          const sectionTop = section.getBoundingClientRect().top + currentY;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (currentY >= sectionTop && currentY < sectionBottom) {
+            menuLinks.forEach((menuLink) => {
+              menuLink.classList.remove("active");
+            });
+            menuLinks[index].classList.add("active");
+          }
+        });
+      });
+    }
+  };
+</script>
