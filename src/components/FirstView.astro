@@ -2,22 +2,42 @@
 import Pokeball from '../components/decoration/Pokeball.astro'
 ---
 
-<section>
+<section id="home">
   <div
     class="mx-auto max-w-screen-xl px-4 py-32 flex h-screen items-center"
   >
     <div class="mx-auto max-w-3xl text-center">
       <h1
-        class="py-3 mx-8 bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900 bg-clip-text text-5xl sm:text-6xl font-extrabold text-transparent"
+        class="py-3 bg-gradient-to-r from-amber-400 via-sky-400 to-blue-900 bg-clip-text text-5xl sm:text-6xl font-extrabold text-transparent"
       >
         DiegoMarty <span class="block"> Web Developer</span>
       </h1>
+
+      <div class="rotate-35">
+
+        <div class="mt-5 animate-bounce w-full flex items-center justify-center ">
+          
+          <div class="justify-center items-center flex flex-col">
+            <span class="text-lg ">
+              Click me!
+            </span>
+  
+            <svg class="w-6 h-6 text-amber-400 " fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+
+          </div>
+
+        </div>
+      </div>
+
       <div class="mt-8 flex justify-center">
-        <a href="#about" class="inline-flex justify-center w-24 h-20 rounded-full">
+        <a href="#about" class="inline-flex justify-center w-28 h-28 rounded-full">
           <Pokeball />
           <span class="sr-only">Scroll down</span>
         </a>
       </div>
+
     </div>
   </div>
 </section>
