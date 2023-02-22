@@ -30,7 +30,8 @@ jobs:
         run: npm install
       - name: Prettify code
         uses: creyD/prettier_action@v4.3
-        
+        with:
+          prettier_options: --write **/*.{js,md}
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
