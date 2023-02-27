@@ -36,7 +36,7 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: '💚 Code format'
+          commit_message: '💚 Auto Code format'
           branch: ${{ github.head_ref }}
           commit_user_name: DiegoMarty
           commit_user_email: contacto@diegomarty.com
