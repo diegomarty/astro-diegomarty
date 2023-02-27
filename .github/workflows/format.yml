@@ -33,10 +33,4 @@ jobs:
         with:
           prettier_plugins: "prettier-plugin-astro"
           prettier_options: --write **/*.{js,md,astro,jsx}
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: '💚 Auto Code format'
-          branch: ${{ github.head_ref }}
-          commit_user_name: DiegoMarty
-          commit_user_email: contacto@diegomarty.com
+          commit_message: '💚 Auto Code format by prettier'
