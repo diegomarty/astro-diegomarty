@@ -26,15 +26,16 @@ import { SEO } from "astro-seo";
           url: "https://diegomarty.com/",
         },
         optional: {
-          description: "Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo.",
+          description:
+            "Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo.",
           siteName: "DiegoMarty - Mi sitio web",
         },
-        image:{
+        image: {
           alt: "DiegoMarty - Mi sitio web",
-        }        
+        },
       }}
       twitter={{
-        creator: "@Diego_Marty96"
+        creator: "@Diego_Marty96",
       }}
       extend={{
         link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.ico" }],
@@ -44,7 +45,11 @@ import { SEO } from "astro-seo";
             content: "/thumbnail.jpg",
           },
           { name: "twitter:title", content: "Hi! Im DiegoMarty" },
-          { name: "twitter:description", content: "Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo." },
+          {
+            name: "twitter:description",
+            content:
+              "Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo.",
+          },
         ],
       }}
     />
@@ -52,30 +57,30 @@ import { SEO } from "astro-seo";
   <body class="bg-gray-900 text-white w-full">
     <slot />
     <ParticleStacksBackgroud />
+    <style is:global>
+      :root {
+        --background-gradient: linear-gradient(
+          45deg,
+          #000814 0%,
+          #001d3d 25%,
+          #003566 50%,
+          #ffc300 75%,
+          #ffd60a 100%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background-color: var(--background-gradient);
+        scroll-behavior: smooth;
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+      .bg-clip-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  :root {
-    --background-gradient: linear-gradient(
-      45deg,
-      #000814 0%,
-      #001d3d 25%,
-      #003566 50%,
-      #ffc300 75%,
-      #ffd60a 100%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: var(--background-gradient);
-    scroll-behavior: smooth;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-  .bg-clip-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-  }
-</style>
