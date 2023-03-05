@@ -1,0 +1,57 @@
+html,
+body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* Custom component styles */
+/* Copy to clipboard */
+pre[class*='astro-code'] {
+  position: relative;
+  margin: 5px 0;
+  padding: 2.25rem 0 1.75rem 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre[class*='astro-code'] button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  font-size: 0.9rem;
+  padding: 0.15rem;
+  background-color: #525252;
+
+  border-radius: 5px;
+  text-shadow: #c4c4c4 0 0 2px;
+  color: #fff;
+}
+
+pre[class*='astro-code'] button:hover {
+  cursor: pointer;
+  background-color: #6b6b6b;
+}
+@media screen and (max-width: 600px) {
+  pre[class*='astro-code'] button {
+    font-size: 0.8rem;
+    padding: 0.1rem;
+  }
+}
+/* End copy to clipboard */
+
+
+/* Scroll indicator styles */
+.progress::-moz-progress-bar {
+  background-color: #0f1729;
+}
+
+.progress::-webkit-progress-bar {
+  background-color: #0f1729;
+}
+
+.progress {
+  opacity: 0.5;
+  display: none;
+}
+

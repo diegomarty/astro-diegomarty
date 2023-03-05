@@ -1,0 +1,74 @@
+---
+import "../styles/global.css";
+
+import SEO from "../components/SEO.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  siteName?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  twitterHandle?: string;
+  slug?: string;
+}
+
+const {
+  title,
+  description,
+  siteName = "diegomarty.com",
+  canonical,
+  ogImage,
+  ogType,
+  twitterHandle,
+  slug,
+} = Astro.props as Props;
+---
+
+<html lang="en">
+  <head>
+    <SEO
+      {...{
+        title,
+        description,
+        siteName,
+        canonical,
+        ogImage,
+        ogType,
+        twitterHandle,
+        slug,
+      }}
+    />
+  </head>
+
+  <body>
+    <Header />
+    <div class="flex-grow w-full max-w-3xl justify-center mx-auto">
+      <div class="px-4 pt-4 md:pt-8">
+        <div class="min-w-full prose lg:prose-lg animate-content-fade">
+          <slot />
+        </div>
+      </div>
+    </div>
+    <Footer />
+    <!-- FOUC fix -->
+    <script src="../scripts/fouc.ts"></script>
+    <!-- Buy me a coffee -->
+    <script
+      is:inline
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="diegomarty"
+      data-description="Support me on Buy me a coffee!"
+      data-message=""
+      data-color="#ffd60a"
+      data-position="Right"
+      data-x_margin="5"
+      data-y_margin="5"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+---
+import { published } from "../../data/post";
+import PostCard from "../../components/posts/PostCard.astro";
+import Layout from "../../layouts/PostsLayout.astro";
+export async function getStaticPaths({ paginate }: any) {
+  const markdownFiles = await Astro.glob("../../posts/*.mdx");
+  const posts = published(markdownFiles);
+  return paginate(posts, { pageSize: 4 });
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
+---
+
+<Layout
+  title="Blog"
+  description="Stay informed on the latest web development trends and techniques with Aleksa's blog. As a junior React developer skilled in using Next.js, TypeScript, and Tailwind CSS, Aleksa (or Alexa) shares their insights and experiences on various front-end development topics. Visit the blog page to read more and discover new ways to enhance your skills as a developer."
+>
+  <h1>Blog</h1>
+  <div>
+    {page.data.map((post: any) => <PostCard post={post} />)}
+  </div>
+  <div class="flex flex-row justify-center font-semibold mt-4">
+    Page {page.currentPage} / {page.lastPage}
+  </div>
+  <div class="btn-group grid grid-cols-2 w-2/3 sm:w-1/2 mx-auto mt-4">
+    <a
+      href={page.url.prev}
+      class={`btn btn-outline ${page.url.prev ? "" : "btn-disabled"}`}
+    >
+      Previous
+    </a>
+
+    <a
+      href={page.url.next}
+      class={`btn btn-outline ${page.url.next ? "" : "btn-disabled"}`}
+    >
+      Next
+    </a>
+  </div>
+</Layout>

@@ -1,0 +1,169 @@
+---
+import Layout from "../layouts/PostsLayout.astro";
+import { Image } from "@astrojs/image/components";
+import Date from "../components/utilities/Date.astro";
+import ReadTime from "../components/utilities/ReadTime.astro";
+import { published } from "../data/post";
+export async function getStaticPaths() {
+  const markdownFiles = await Astro.glob("../posts/*.mdx");
+  const posts = published(markdownFiles);
+  return posts.map((post) => {
+    return {
+      params: { post: post.slug },
+      props: { post },
+    };
+  });
+}
+// Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
+const {
+  post: { Content },
+  post,
+} = Astro.props;
+---
+
+<Layout
+  title={post.title}
+  description={post.desc}
+  ogImage={post.img}
+  canonical={import.meta.env.SITE + post.slug}
+  slug={post.slug}
+>
+  <progress
+    class="progress progress-secondary sticky w-full top-16 z-50"
+    max="100"
+    value="0">
+  </progress>
+  <div class="flex justify-center">
+    <div class="flex flex-col min-w-full py-4 prose break-words lg:prose-lg">
+      {
+        post.img && post.imgWidth && post.imgHeight ? (
+          <div class="flex justify-center">
+            <Image
+              src={post.img}
+              alt={post.title}
+              width={post.imgWidth}
+              height={post.imgHeight}
+              format={"webp"}
+              srcset={post.img + " 1x," + post.img + " 2x"}
+              class="rounded bg-base-200"
+            />
+          </div>
+        ) : (
+          post.img && (
+            <div class="flex justify-center">
+              <Image
+                src={post.img}
+                alt={post.title}
+                format={"webp"}
+                srcset={post.img + " 1x," + post.img + " 2x"}
+                class="rounded bg-base-200"
+              />
+            </div>
+          )
+        )
+      }
+      <div class="text-center">
+        <h1>{post.title}</h1>
+        <div
+          class="flex flex-row items-center justify-center gap-2 text-sm xs:text-base sm:text-lg"
+        >
+          <span>
+            <Date date={post.date} />
+          </span>
+          <span>•</span>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-book"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+              <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+              <line x1="3" y1="6" x2="3" y2="19"></line>
+              <line x1="12" y1="6" x2="12" y2="19"></line>
+              <line x1="21" y1="6" x2="21" y2="19"></line>
+            </svg>
+          </span>
+          <ReadTime slug={post.slug} />
+        </div>
+      </div>
+      <div>
+        <Content />
+        <hr />
+        <h2>Comments</h2>
+        <script
+          is:inline
+          src="https://utteranc.es/client.js"
+          repo="aleksa-codes/astro-portfolio"
+          issue-term="og:title"
+          label="comment✨💬✨"
+          theme="dark-blue"
+          crossorigin="anonymous"
+        ></script>
+      </div>
+    </div>
+  </div>
+</Layout>
+<!-- <script src='../scripts/copytoclipboard.ts'></script> -->
+<script>
+  const copyButtonLabel = `<span class="flex flex-row px-1 gap-1">Copy<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+<rect x="8" y="8" width="12" height="12" rx="2" />
+<path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
+</svg>
+</span>`;
+
+  // use a class selector if available
+  let blocks = document.querySelectorAll("pre");
+
+  blocks.forEach((block) => {
+    // only add button if browser supports Clipboard API
+    if (navigator.clipboard) {
+      let button = document.createElement("button");
+
+      button.innerHTML = copyButtonLabel;
+      block.appendChild(button);
+      block.setAttribute("tabindex", "0");
+
+      button.addEventListener("click", async () => {
+        await copyCode(block, button);
+      });
+    }
+  });
+
+  async function copyCode(block: any, button: any) {
+    let code = block.querySelector("code");
+    let text = code.innerText;
+
+    await navigator.clipboard.writeText(text);
+
+    // visual feedback that task is completed
+    button.innerHTML = `<span class="flex flex-row px-1 gap-1">Copied<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#B4E657" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M7 12l5 5l10 -10" />
+    <path d="M2 12l5 5m5 -5l5 -5" />
+  </svg>
+</span>`;
+
+    setTimeout(() => {
+      button.innerHTML = copyButtonLabel;
+    }, 700);
+  }
+</script>
+<script>
+  const progress = document.querySelector(".progress") as HTMLProgressElement;
+  const totalHeight = document.body.scrollHeight - window.innerHeight;
+  window.onscroll = function () {
+    const progressHeight = (window.pageYOffset / totalHeight) * 100;
+    progress.value = progressHeight;
+    progress.style.display = "block";
+  };
+</script>
