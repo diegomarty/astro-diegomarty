@@ -1,5 +1,4 @@
 ---
-import DM_white from "/DM_White.svg";
 ---
 
 <header aria-label="Site Header" class="bg-gray-900">
@@ -12,7 +11,7 @@ import DM_white from "/DM_White.svg";
           <span class="sr-only">Home</span>
 
           <img
-            src={DM_white}
+            src="/assets/DM_White.svg"
             alt="DM logo"
             class="h-6"
             width="163px"
@@ -27,7 +26,7 @@ import DM_white from "/DM_White.svg";
             <li>
               <a
                 class="transition text-white hover:text-amber-400/75 p-2 active"
-                href="#home"
+                href="/#home"
               >
                 Home
               </a>
@@ -35,7 +34,7 @@ import DM_white from "/DM_White.svg";
             <li>
               <a
                 class="transition text-white hover:text-amber-400/75 p-2"
-                href="#about"
+                href="/#about"
               >
                 About
               </a>
@@ -44,7 +43,7 @@ import DM_white from "/DM_White.svg";
             <li>
               <a
                 class="transition text-white hover:text-amber-400/75 p-2"
-                href="#stacks"
+                href="/#stacks"
               >
                 Stacks
               </a>
@@ -52,10 +51,15 @@ import DM_white from "/DM_White.svg";
             <li>
               <a
                 class="transition text-white hover:text-amber-400/75 p-2"
-                href="#proyects"
+                href="/#proyects"
               >
                 Proyects
               </a>
+            </li>
+            <li
+              class="bg-amber-400 hover:bg-white rounded-lg p-3 text-gray-800 hover:text-amber-400"
+            >
+              <a class="transition" href="/blog"> Blog</a>
             </li>
           </ul>
         </nav>
@@ -76,7 +80,7 @@ import DM_white from "/DM_White.svg";
         <li>
           <a
             class="movil transition text-white hover:text-amber-400/75 active"
-            href="#home"
+            href="/#home"
           >
             Home
           </a>
@@ -84,7 +88,7 @@ import DM_white from "/DM_White.svg";
         <li>
           <a
             class="movil transition text-white hover:text-amber-400/75"
-            href="#about"
+            href="/#about"
           >
             About
           </a>
@@ -93,7 +97,7 @@ import DM_white from "/DM_White.svg";
         <li>
           <a
             class="movil transition text-white hover:text-amber-400/75"
-            href="#stacks"
+            href="/#stacks"
           >
             Stacks
           </a>
@@ -101,10 +105,15 @@ import DM_white from "/DM_White.svg";
         <li>
           <a
             class="movil transition text-white hover:text-amber-400/75"
-            href="#proyects"
+            href="/#proyects"
           >
             Proyects
           </a>
+        </li>
+        <li
+          class="bg-amber-400 hover:bg-white rounded-lg p-3 text-gray-800 hover:text-amber-400"
+        >
+          <a class="movil transition" href="/blog"> Blog</a>
         </li>
       </ul>
     </nav>
@@ -138,7 +147,7 @@ import DM_white from "/DM_White.svg";
   }
   nav a.active::before {
     content: "";
-    background-image: url("/svgs/PokeballActive.svg");
+    background-image: url("/assets/svgs/PokeballActive.svg");
     position: fixed;
     width: 35px;
     height: 35px;

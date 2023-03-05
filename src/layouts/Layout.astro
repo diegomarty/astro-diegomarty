@@ -57,6 +57,19 @@ import { SEO } from "astro-seo";
   <body class="bg-gray-900 text-white w-full">
     <slot />
     <ParticleStacksBackgroud />
+    <script
+      is:inline
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="diegomarty"
+      data-description="Support me on Buy me a coffee!"
+      data-message=""
+      data-color="#ffd60a"
+      data-position="Right"
+      data-x_margin="5"
+      data-y_margin="5"
+    ></script>
     <style is:global>
       :root {
         --background-gradient: linear-gradient(
@@ -82,8 +95,10 @@ import { SEO } from "astro-seo";
         -webkit-background-clip: text;
       }
 
-      @media (max-width: 768px) {
-        div#bmc-wbtn {
+      /* hide #bmc-wbtn on md screens */
+      @media only screen and (max-width: 768px) {
+        #bmc-wbtn,
+        #bmc-wbtn + div {
           display: none !important;
         }
       }

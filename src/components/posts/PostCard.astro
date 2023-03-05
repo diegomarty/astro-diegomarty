@@ -1,0 +1,63 @@
+---
+import type { Post } from "../../data/post";
+import { Image } from "@astrojs/image/components";
+import Date from "../utilities/Date.astro";
+/*import ReadTime from "../utilities/ReadTime.astro";*/
+const post: Post = Astro.props.post;
+---
+
+<div class="flex flex-col items-center sm:pb-8 sm:flex-row-reverse sm:gap-10">
+  {
+    post.img && (
+      <a href={`/${post.slug}`} class="shrink-0">
+        <Image
+          src={post.img}
+          alt={post.title}
+          width={post.imgWidth}
+          height={post.imgHeight}
+          format={"webp"}
+          class="object-cover w-full rounded sm:w-52 sm:h-40 bg-base-200"
+        />
+      </a>
+    )
+  }
+  <div class="flex flex-col">
+    <h2 class="!my-0 text-center sm:text-left">
+      <a
+        class="font-semibold no-underline hover:underline"
+        href={`/${post.slug}`}
+        >{post.title}
+      </a>
+    </h2>
+    <div
+      class="flex flex-row items-center justify-center gap-2 pt-2 text-sm sm:justify-start"
+    >
+      <span>
+        <Date date={post.date} />
+      </span>
+      <span>•</span>
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-book"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+          <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+          <line x1="3" y1="6" x2="3" y2="19"></line>
+          <line x1="12" y1="6" x2="12" y2="19"></line>
+          <line x1="21" y1="6" x2="21" y2="19"></line>
+        </svg>
+      </span>
+    </div>
+    <p class="text-sm text-base-content/80">{post.desc}</p>
+  </div>
+</div>
