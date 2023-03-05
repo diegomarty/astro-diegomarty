@@ -1,5 +1,7 @@
 ---
-import Icon from "./Icon.astro";
+import GithubWhite from "/svgs/GithubWhite.svg";
+import LinkedIn from "/svgs/LinkedIn.svg";
+import Bmc from "/svgs/Bmc.svg";
 ---
 
 <ul class="my-12 flex justify-center gap-6 md:gap-8">
@@ -11,7 +13,7 @@ import Icon from "./Icon.astro";
       class="text-white hover:text-white/75 transition"
     >
       <span class="sr-only">LinkedIn</span>
-      <Icon icon="LinkedIn" />
+      <img src={LinkedIn} width="45px" height="45px" alt="linkedIn Logo" />
     </a>
   </li>
 
@@ -23,7 +25,7 @@ import Icon from "./Icon.astro";
       class="text-white hover:text-white/75 transition"
     >
       <span class="sr-only">GitHub</span>
-      <Icon icon="GithubWhite" />
+      <img src={GithubWhite} width="45px" height="45px" alt="Github Logo" />
     </a>
   </li>
 
@@ -35,7 +37,7 @@ import Icon from "./Icon.astro";
       class="text-white hover:text-white/75 transition"
     >
       <span class="sr-only">Buy me a coffe</span>
-      <Icon icon="Bmc" />
+      <img src={Bmc} width="31px" height="45px" alt="Bmc Logo" />
     </a>
   </li>
 </ul>
