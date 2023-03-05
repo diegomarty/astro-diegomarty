@@ -1,7 +1,6 @@
 {
     "headers": [
       {
-        "source": "https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js",
         "headers": [
           { "key": "Access-Control-Allow-Credentials", "value": "true" },
           { "key": "Access-Control-Allow-Origin", "value": "*" },
