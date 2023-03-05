@@ -4,7 +4,7 @@ import { SEO } from "astro-seo";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -54,13 +54,14 @@ import { SEO } from "astro-seo";
       }}
     />
     <script
+      is:inline
       data-name="BMC-Widget"
       data-cfasync="false"
       src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-      data-id="DiegoMarty"
+      data-id="diegomarty"
       data-description="Support me on Buy me a coffee!"
-      data-message=""
-      data-color="#FF813F"
+      data-message="Made with 💻 and ☕"
+      data-color="#ffc300"
       data-position="Right"
       data-x_margin="18"
       data-y_margin="18"
@@ -69,7 +70,6 @@ import { SEO } from "astro-seo";
   <body class="bg-gray-900 text-white w-full">
     <slot />
     <ParticleStacksBackgroud />
-
     <style is:global>
       :root {
         --background-gradient: linear-gradient(
