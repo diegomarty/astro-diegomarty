@@ -1,7 +1,7 @@
 ---
 import { published } from "../../data/post";
 import PostCard from "../../components/posts/PostCard.astro";
-import Layout from "../../layouts/PostsLayout.astro";
+import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths({ paginate }: any) {
   const markdownFiles = await Astro.glob("../../posts/*.mdx");
   const posts = published(markdownFiles);
@@ -13,7 +13,7 @@ const { page } = Astro.props;
 
 <Layout
   title="Blog"
-  description="Stay informed on the latest web development trends and techniques with Aleksa's blog. As a junior React developer skilled in using Next.js, TypeScript, and Tailwind CSS, Aleksa (or Alexa) shares their insights and experiences on various front-end development topics. Visit the blog page to read more and discover new ways to enhance your skills as a developer."
+  description="Manténgase informado sobre las últimas tendencias y técnicas de desarrollo web con el blog de Diego Marty. Como desarrollador junior de React experto en el uso de PHP, Symfony, Next.js y Tailwind CSS, Diego Marty comparte sus conocimientos y experiencias sobre varios temas de desarrollo front-end y back-end. Visite la página del blog para leer más y descubrir nuevas formas de mejorar sus habilidades como desarrollador."
 >
   <h1>Blog</h1>
   <div>
