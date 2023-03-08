@@ -23,7 +23,7 @@ export const { getStaticPaths, get } = OGImageRoute({
       [64, 64, 64]
     ],
     logo: {
-      path: './public/DM_White.svg',
+      path: './public/assets/DM_White.svg',
     }
     // There are a bunch more options you can use here!
   })
