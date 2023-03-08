@@ -1,10 +1,34 @@
+:root {
+  --background-gradient: linear-gradient(
+    45deg,
+    #000814 0%,
+    #001d3d 25%,
+    #003566 50%,
+    #ffc300 75%,
+    #ffd60a 100%
+  );
+}
 html,
 body {
-  height: 100%;
   min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  background-color: var(--background-gradient);
+  scroll-behavior: smooth;
 }
 
-/* Custom component styles */
+.bg-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* hide #bmc-wbtn on md screens */
+@media only screen and (max-width: 768px) {
+  #bmc-wbtn,
+  #bmc-wbtn + div {
+    display: none !important;
+  }
+}
+
 /* Copy to clipboard */
 pre[class*='astro-code'] {
   position: relative;
