@@ -10,22 +10,22 @@ export interface Props {
   slug?: string;
 }
 
-const DOMAIN = "https://aleksa.codes";
-const DEFAULT_OG_IMAGE = "https://aleksa.codes/assets/aleksa-codes-og.png";
+const DOMAIN = "https://diegomarty.com/";
+const DEFAULT_OG_IMAGE = "https://diegomarty.com/assets/diego-marty-og.jpg";
 const {
-  title = "aleksa.codes",
-  description = "As a junior React developer, Aleksa is skilled in building user interfaces and front-end applications using the popular JavaScript library. Passionate about coding and dedicated to creating visually appealing and user-friendly experiences, Aleksa is constantly seeking to improve and expand their skills. Explore Aleksa's (or Alexa's) portfolio to see their work and learn more about their capabilities as a web developer.",
-  siteName = "aleksa.codes",
+  title = "DiegoMarty WebDev",
+  description = "Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo.",
+  siteName = "DiegoMarty.com",
   canonical = DOMAIN,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
-  twitterHandle = "@aleksacodes",
+  twitterHandle = "@Diego_Marty96",
   slug = undefined,
 } = Astro.props as Props;
 ---
 
 {
-  title === "aleksa.codes" ? (
+  title === "DiegoMarty.com" ? (
     <title>{`${siteName}`}</title>
   ) : (
     <title>{`${title} | ${siteName}`}</title>
@@ -39,15 +39,14 @@ const {
   content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
 />
 <meta name="generator" content={Astro.generator} />
-<link rel="alternate" type="application/rss+xml" href="/rss.xml" />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
 
 <meta
   name="title"
-  content={title === "aleksa.codes"
-    ? "aleksa.codes | Web Developer"
+  content={title === "DiegoMarty.com"
+    ? "DiegoMarty.com | Web Developer"
     : `${title} | ${siteName}`}
 />
 <meta name="description" content={description} />
@@ -56,7 +55,7 @@ const {
 <meta property="og:url" content={canonical} />
 <meta
   property="og:title"
-  content={title === "aleksa.codes"
+  content={title === "DiegoMarty.com"
     ? "Portfolio & Blog"
     : `${title} | ${siteName}`}
 />
@@ -69,14 +68,14 @@ const {
   property="og:image:alt"
   content={slug !== undefined
     ? title + "Social Image"
-    : "Aleksa Codes Social Image"}
+    : "Diego Marty Social Image"}
 />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonical} />
 <meta
   property="twitter:title"
-  content={title === "aleksa.codes"
+  content={title === "DiegoMarty.com"
     ? "Portfolio & Blog"
     : `${title} | ${siteName}`}
 />
@@ -90,13 +89,14 @@ const {
   property="twitter:image:alt"
   content={slug !== undefined
     ? title + "Social Image"
-    : "Aleksa Codes Social Image"}
+    : "Diego Marty Social Image"}
 />
 
 <link rel="canonical" href={canonical ?? DOMAIN} />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/ios/16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/ios/32.png" />
 <link rel="apple-touch-icon" sizes="57x57" href="/icons/ios/57.png" />
-<link rel="apple-touch-icon" sizes="60x60" href="/icons/ios/60.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="/icons/ios/72.png" />
 <link rel="apple-touch-icon" sizes="76x76" href="/icons/ios/76.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="/icons/ios/114.png" />
@@ -110,15 +110,12 @@ const {
   sizes="192x192"
   href="/icons/android/192.png"
 />
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/ios/32.png" />
-<link rel="icon" type="image/png" sizes="96x96" href="/icons/ios/96.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/ios/16.png" />
 
 <link rel="shortcut icon" href="/favicon.ico" />
-<meta name="application-name" content="aleksa.codes" />
+<meta name="application-name" content="DiegoMarty.com" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="apple-mobile-web-app-title" content="aleksa.codes" />
+<meta name="apple-mobile-web-app-title" content="DiegoMarty.com" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="mobile-web-app-capable" content="yes" />
-<meta name="theme-color" content="#463aa1" />
+<meta name="theme-color" content="#fca311" />
