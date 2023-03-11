@@ -14,6 +14,7 @@ export interface Props {
   ogType?: string;
   twitterHandle?: string;
   slug?: string;
+  prose?: boolean;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   ogType,
   twitterHandle,
   slug,
+  prose = false,
 } = Astro.props as Props;
 ---
 
@@ -48,11 +50,20 @@ const {
     <Header />
     <div class="flex-grow w-full max-w-3xl justify-center mx-auto">
       <div class="px-4 pt-4 md:pt-8">
-        <div class="min-w-full animate-content-fade">
-          <slot />
-        </div>
+        {
+          prose ? (
+            <div class="min-w-full animate-content-fade prose prose-lg">
+              <slot />
+            </div>
+          ) : (
+            <div class="min-w-full animate-content-fade">
+              <slot />
+            </div>
+          )
+        }
       </div>
     </div>
+
     <Footer />
     <!-- FOUC fix -->
     <script src="../scripts/fouc.ts"></script>
