@@ -1,4 +1,7 @@
 ---
+import { navItems } from "../data/nav";
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <header aria-label="Site Header">
@@ -23,32 +26,29 @@
       <div class="hidden md:block justify-end" id="desktop-menu">
         <nav aria-label="Site Nav">
           <ul class="flex items-center gap-6 text-sm">
-            <a
-              class="desktop transition text-white hover:text-amber-400/75 p-2 active"
-              href="/#home"
-            >
-              <li>Home</li>
-            </a>
-            <a
-              class="desktop transition text-white hover:text-amber-400/75 p-2"
-              href="/#about"
-            >
-              <li>About</li>
-            </a>
+            {
+              navItems.map(
+                ({
+                  href,
+                  label,
+                  hrefId,
+                }: {
+                  href: string;
+                  label: string;
+                  hrefId: string;
+                }) => (
+                  <a
+                    href={href}
+                    class={pathname === href ? "active" : ""}
+                    class="desktop transition text-white hover:text-amber-400/75 p-2"
+                  >
+                    <li>{label}</li>
+                  </a>
+                )
+              )
+            }
 
-            <a
-              class="desktop transition text-white hover:text-amber-400/75 p-2"
-              href="/#stacks"
-            >
-              <li>Stacks</li>
-            </a>
-            <a
-              class="desktop transition text-white hover:text-amber-400/75 p-2"
-              href="/#proyects"
-            >
-              <li>Proyects</li>
-            </a>
-            <a class="desktop transition" href="/blog">
+            <a class="desktop transition blog" href="/blog">
               <li
                 class="bg-amber-400 hover:bg-white rounded-lg py-2 px-3 text-gray-800 hover:text-amber-400"
               >
@@ -171,12 +171,37 @@
       const menuLinks = document.querySelectorAll(
         "#movile-menu > nav > ul > a.movil"
       );
-      console.log(menuLinks);
       const currentY = window.pageYOffset;
 
       sections.forEach((section, index) => {
         const sectionTop = section.getBoundingClientRect().top + currentY;
         const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (currentY >= sectionTop && currentY < sectionBottom) {
+          menuLinks.forEach((menuLink) => {
+            menuLink.classList.remove("active");
+          });
+          menuLinks[index].classList.add("active");
+        }
+      });
+    });
+  }
+
+  function actualizarActiveDesktopMenu() {
+    window.addEventListener("scroll", function () {
+      const sections = document.querySelectorAll("section");
+
+      const menuLinks = document.querySelectorAll(
+        "#desktop-menu > nav > ul > a.desktop"
+      );
+      console.log("hi");
+      console.log(menuLinks);
+      const currentY = window.pageYOffset;
+      sections.forEach((section, index) => {
+        let sectionTop = section.getBoundingClientRect().top + currentY;
+        sectionTop = sectionTop != 0 ? sectionTop - 100 : sectionTop;
+        let sectionBottom = sectionTop + section.offsetHeight;
+        sectionBottom = sectionBottom - 100;
 
         if (currentY >= sectionTop && currentY < sectionBottom) {
           menuLinks.forEach((menuLink) => {
@@ -197,27 +222,7 @@
     if (windowSize <= 768) {
       mostrarMovileMenuEnScroll();
     } else {
-      window.addEventListener("scroll", function () {
-        const sections = document.querySelectorAll("section");
-
-        const menuLinks = document.querySelectorAll(
-          "#desktop-menu > nav > ul > a.desktop"
-        );
-        const currentY = window.pageYOffset;
-        sections.forEach((section, index) => {
-          let sectionTop = section.getBoundingClientRect().top + currentY;
-          sectionTop = sectionTop != 0 ? sectionTop - 100 : sectionTop;
-          let sectionBottom = sectionTop + section.offsetHeight;
-          sectionBottom = sectionBottom - 100;
-
-          if (currentY >= sectionTop && currentY < sectionBottom) {
-            menuLinks.forEach((menuLink) => {
-              menuLink.classList.remove("active");
-            });
-            menuLinks[index].classList.add("active");
-          }
-        });
-      });
+      actualizarActiveDesktopMenu();
     }
   };
 </script>
