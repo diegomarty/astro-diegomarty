@@ -31,8 +31,11 @@ const pathname = new URL(Astro.request.url).pathname;
                 ({ href, label }: { href: string; label: string }) => (
                   <a
                     href={href}
-                    class={pathname === href ? "active" : ""}
-                    class="desktop transition text-white hover:text-amber-400/75 p-2"
+                    class={
+                      pathname === href
+                        ? "transition text-white hover:text-amber-400/75 p-2 active"
+                        : "transition text-white hover:text-amber-400/75 p-2"
+                    }
                   >
                     <li>{label}</li>
                   </a>
@@ -40,9 +43,12 @@ const pathname = new URL(Astro.request.url).pathname;
               )
             }
 
-            <a class="desktop transition blog" href="/blog">
+            <a
+              class={pathname === "/blog" ? "blog active" : "blog"}
+              href="/blog"
+            >
               <li
-                class="bg-amber-400 hover:bg-white rounded-lg py-2 px-3 text-gray-800 hover:text-amber-400"
+                class="bg-amber-400 rounded-lg py-2 px-3 hover:bg-white hover:text-amber-400 text-gray-800"
               >
                 Blog
               </li>
@@ -63,35 +69,22 @@ const pathname = new URL(Astro.request.url).pathname;
       <ul
         class="flex items-center justify-center gap-6 text-sm bg-slate-800 p-4 rounded-lg opacity-90"
       >
-        <a
-          class="movil transition text-white hover:text-amber-400/75 active"
-          href="/#home"
-        >
-          <li>Home</li>
-        </a>
+        {
+          navItems.map(({ href, label }: { href: string; label: string }) => (
+            <a
+              href={href}
+              class={
+                pathname === href
+                  ? "transition text-white hover:text-amber-400/75 active"
+                  : "transition text-white hover:text-amber-400/75"
+              }
+            >
+              <li>{label}</li>
+            </a>
+          ))
+        }
 
-        <a
-          class="movil transition text-white hover:text-amber-400/75"
-          href="/#about"
-        >
-          <li>About</li>
-        </a>
-
-        <a
-          class="movil transition text-white hover:text-amber-400/75"
-          href="/#stacks"
-        >
-          <li>Stacks</li>
-        </a>
-
-        <a
-          class="movil transition text-white hover:text-amber-400/75"
-          href="/#proyects"
-        >
-          <li>Proyects</li>
-        </a>
-
-        <a class="movil transition" href="/blog">
+        <a class={pathname === "/blog" ? "blog active" : "blog"} href="/blog">
           <li
             class="bg-amber-400 hover:bg-white rounded-lg py-1 px-2 text-gray-800 hover:text-amber-400"
           >
@@ -161,13 +154,16 @@ const pathname = new URL(Astro.request.url).pathname;
 
       const sections = document.querySelectorAll("section");
       const menuLinks = document.querySelectorAll(
-        "#movile-menu > nav > ul > a.movil"
+        "#movile-menu > nav > ul > a"
       );
       const currentY = window.pageYOffset;
 
       sections.forEach((section, index) => {
-        const sectionTop = section.getBoundingClientRect().top + currentY;
-        const sectionBottom = sectionTop + section.offsetHeight;
+        let sectionTop = section.getBoundingClientRect().top + currentY;
+        sectionTop = sectionTop != 0 ? sectionTop - 200 : sectionTop;
+
+        let sectionBottom = sectionTop + section.offsetHeight;
+        sectionBottom = sectionBottom - 200;
 
         if (currentY >= sectionTop && currentY < sectionBottom) {
           menuLinks.forEach((menuLink) => {
@@ -191,6 +187,7 @@ const pathname = new URL(Astro.request.url).pathname;
       sections.forEach((section, index) => {
         let sectionTop = section.getBoundingClientRect().top + currentY;
         sectionTop = sectionTop != 0 ? sectionTop - 200 : sectionTop;
+
         let sectionBottom = sectionTop + section.offsetHeight;
         sectionBottom = sectionBottom - 200;
 
