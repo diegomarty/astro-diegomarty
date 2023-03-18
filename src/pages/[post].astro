@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "@astrojs/image/components";
 import Date from "../components/utilities/Date.astro";
 import ReadTime from "../components/utilities/ReadTime.astro";
 import { published } from "../data/post";
+import { Image } from "@astrojs/image/components";
+
 export async function getStaticPaths() {
   const markdownFiles = await Astro.glob("../posts/*.mdx");
   const posts = published(markdownFiles);
@@ -30,7 +31,8 @@ const {
   prose={true}
 >
   <progress
-    class="progress progress-warning sticky w-full top-24 z-50"
+    class="progress progress-warning sticky w-full top-0 z-50"
+    style="opacity: 1;"
     max="100"
     value="0"
   >
