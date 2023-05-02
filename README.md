@@ -1,4 +1,4 @@
-# DiegoMarty Astro.js Web Portfolio  y Blog
+# DiegoMarty Astro.js Web Portfolio y Blog
 
 👉 Porfolio website with personal and contact inforamation, projects showcase and a blog.
 
@@ -41,6 +41,7 @@ npm run build
 ![Seo Results on Lighthouse](public/Sassets/thumbnails/SeoMobile.png)
 
 ## 📁 Estructura de directorios
+
 ```bash
 ├───.github
 │   └───workflows
