@@ -11,7 +11,6 @@ import {
   SiVisualstudiocode,
   SiNextdotjs,
 } from "react-icons/si/index";
-import AstroLogo from "/svgs/AstroLogo.svg";
 
 export default function MyStacks() {
   return (
@@ -40,7 +39,7 @@ export default function MyStacks() {
         <Stack StackIcon={SiVisualstudiocode} />
       </div>
       <div className="mx-auto">
-        <Stack image={AstroLogo} />
+        <Stack image="/assets/svgs/AstroLogo.svg" />
       </div>
       <div className="mx-auto col-span-2 md:col-span-1">
         <Stack StackIcon={FaDocker} />

@@ -1,31 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Footer from "../layouts/Footer.astro";
-import Header from "../layouts/Header.astro";
 import FirstView from "../components/FirstView.astro";
+import AboutMe from "../components/about/AboutMe.astro";
 import Proyects from "../components/proyects/Proyects.astro";
 import StacksComponent from "../components/stacks/StacksComponent.astro";
-import AboutMe from "../components/about/AboutMe.astro";
+import ParticleStacksBackgroud from "../components/particles/ParticleStacksBackgroud.astro";
 ---
 
 <Layout>
-  <Header />
-  <FirstView />
-  <AboutMe />
-  <StacksComponent />
-  <Proyects />
-  <Footer />
-  <script
-    is:inline
-    data-name="BMC-Widget"
-    data-cfasync="false"
-    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-    data-id="diegomarty"
-    data-description="Support me on Buy me a coffee!"
-    data-message=""
-    data-color="#ffd60a"
-    data-position="Right"
-    data-x_margin="5"
-    data-y_margin="5"
-  ></script>
+  <div class="relative z-[1]">
+    <FirstView />
+    <AboutMe />
+    <StacksComponent />
+    <Proyects />
+  </div>
+  <ParticleStacksBackgroud />
 </Layout>

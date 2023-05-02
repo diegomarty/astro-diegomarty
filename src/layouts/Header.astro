@@ -1,8 +1,10 @@
 ---
-import DM_white from "/DM_White.svg";
+import { navItems } from "../data/nav";
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<header aria-label="Site Header" class="bg-gray-900">
+<header aria-label="Site Header">
   <div
     class="mx-auto w-full md:fixed relative top-0 px-4 sm:px-6 lg:px-8 py-6 bg-gray-900 z-50 opacity-80"
   >
@@ -12,7 +14,7 @@ import DM_white from "/DM_White.svg";
           <span class="sr-only">Home</span>
 
           <img
-            src={DM_white}
+            src="/assets/DM_White.svg"
             alt="DM logo"
             class="h-6"
             width="163px"
@@ -21,42 +23,36 @@ import DM_white from "/DM_White.svg";
         </a>
       </div>
 
-      <div class="hidden md:block justify-end">
+      <div class="hidden md:block justify-end" id="desktop-menu">
         <nav aria-label="Site Nav">
           <ul class="flex items-center gap-6 text-sm">
-            <li>
-              <a
-                class="transition text-white hover:text-amber-400/75 p-2 active"
-                href="#home"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                class="transition text-white hover:text-amber-400/75 p-2"
-                href="#about"
-              >
-                About
-              </a>
-            </li>
+            {
+              navItems.map(
+                ({ href, label }: { href: string; label: string }) => (
+                  <a
+                    href={href}
+                    class={
+                      pathname === href
+                        ? "transition text-white hover:text-amber-400/75 p-2 active"
+                        : "transition text-white hover:text-amber-400/75 p-2"
+                    }
+                  >
+                    <li>{label}</li>
+                  </a>
+                )
+              )
+            }
 
-            <li>
-              <a
-                class="transition text-white hover:text-amber-400/75 p-2"
-                href="#stacks"
+            <a
+              class={pathname === "/blog" ? "blog active" : "blog"}
+              href="/blog"
+            >
+              <li
+                class="bg-amber-400 rounded-lg py-2 px-3 hover:bg-white hover:text-amber-400 text-gray-800"
               >
-                Stacks
-              </a>
-            </li>
-            <li>
-              <a
-                class="transition text-white hover:text-amber-400/75 p-2"
-                href="#proyects"
-              >
-                Proyects
-              </a>
-            </li>
+                Blog
+              </li>
+            </a>
           </ul>
         </nav>
       </div>
@@ -73,47 +69,37 @@ import DM_white from "/DM_White.svg";
       <ul
         class="flex items-center justify-center gap-6 text-sm bg-slate-800 p-4 rounded-lg opacity-90"
       >
-        <li>
-          <a
-            class="movil transition text-white hover:text-amber-400/75 active"
-            href="#home"
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            class="movil transition text-white hover:text-amber-400/75"
-            href="#about"
-          >
-            About
-          </a>
-        </li>
+        {
+          navItems.map(({ href, label }: { href: string; label: string }) => (
+            <a
+              href={href}
+              class={
+                pathname === href
+                  ? "transition text-white hover:text-amber-400/75 active"
+                  : "transition text-white hover:text-amber-400/75"
+              }
+            >
+              <li>{label}</li>
+            </a>
+          ))
+        }
 
-        <li>
-          <a
-            class="movil transition text-white hover:text-amber-400/75"
-            href="#stacks"
+        <a class={pathname === "/blog" ? "blog active" : "blog"} href="/blog">
+          <li
+            class="bg-amber-400 hover:bg-white rounded-lg py-1 px-2 text-gray-800 hover:text-amber-400"
           >
-            Stacks
-          </a>
-        </li>
-        <li>
-          <a
-            class="movil transition text-white hover:text-amber-400/75"
-            href="#proyects"
-          >
-            Proyects
-          </a>
-        </li>
+            Blog
+          </li>
+        </a>
       </ul>
     </nav>
   </div>
 </header>
+<div class="md:h-28"></div>
 
 <style>
   .fade-in-out {
-    animation: fadeIn ease 1s;
+    animation: fadeIn ease 0.75s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
@@ -138,7 +124,7 @@ import DM_white from "/DM_White.svg";
   }
   nav a.active::before {
     content: "";
-    background-image: url("/svgs/PokeballActive.svg");
+    background-image: url("/assets/svgs/PokeballActive.svg");
     position: fixed;
     width: 35px;
     height: 35px;
@@ -167,13 +153,43 @@ import DM_white from "/DM_White.svg";
       }
 
       const sections = document.querySelectorAll("section");
-      const menuLinks = document.querySelectorAll("nav ul li a.movil");
-      console.log(menuLinks);
+      const menuLinks = document.querySelectorAll(
+        "#movile-menu > nav > ul > a"
+      );
       const currentY = window.pageYOffset;
 
       sections.forEach((section, index) => {
-        const sectionTop = section.getBoundingClientRect().top + currentY;
-        const sectionBottom = sectionTop + section.offsetHeight;
+        let sectionTop = section.getBoundingClientRect().top + currentY;
+        sectionTop = sectionTop != 0 ? sectionTop - 200 : sectionTop;
+
+        let sectionBottom = sectionTop + section.offsetHeight;
+        sectionBottom = sectionBottom - 200;
+
+        if (currentY >= sectionTop && currentY < sectionBottom) {
+          menuLinks.forEach((menuLink) => {
+            menuLink.classList.remove("active");
+          });
+          menuLinks[index].classList.add("active");
+        }
+      });
+    });
+  }
+
+  function actualizarActiveDesktopMenu() {
+    window.addEventListener("scroll", function () {
+      const sections = document.querySelectorAll("section");
+
+      const menuLinks = document.querySelectorAll(
+        "#desktop-menu > nav > ul > a"
+      );
+
+      const currentY = window.pageYOffset;
+      sections.forEach((section, index) => {
+        let sectionTop = section.getBoundingClientRect().top + currentY;
+        sectionTop = sectionTop != 0 ? sectionTop - 200 : sectionTop;
+
+        let sectionBottom = sectionTop + section.offsetHeight;
+        sectionBottom = sectionBottom - 200;
 
         if (currentY >= sectionTop && currentY < sectionBottom) {
           menuLinks.forEach((menuLink) => {
@@ -194,24 +210,7 @@ import DM_white from "/DM_White.svg";
     if (windowSize <= 768) {
       mostrarMovileMenuEnScroll();
     } else {
-      window.addEventListener("scroll", function () {
-        const sections = document.querySelectorAll("section");
-        const menuLinks = document.querySelectorAll("nav ul li a");
-        const currentY = window.pageYOffset;
-        sections.forEach((section, index) => {
-          let sectionTop = section.getBoundingClientRect().top + currentY;
-          sectionTop = sectionTop != 0 ? sectionTop - 100 : sectionTop;
-          let sectionBottom = sectionTop + section.offsetHeight;
-          sectionBottom = sectionBottom - 100;
-
-          if (currentY >= sectionTop && currentY < sectionBottom) {
-            menuLinks.forEach((menuLink) => {
-              menuLink.classList.remove("active");
-            });
-            menuLinks[index].classList.add("active");
-          }
-        });
-      });
+      actualizarActiveDesktopMenu();
     }
   };
 </script>

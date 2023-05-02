@@ -1,6 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
+	plugins: [
+		require('tailwindcss'),
+		require('autoprefixer'),
+		require('@tailwindcss/line-clamp'),
+		require('@tailwindcss/typography'),
+		require('daisyui'),
+	],
 	theme: {
 		extend: {
 			animation: {
@@ -14,9 +21,4 @@ module.exports = {
 			},
 		}
 	},
-	plugins: [
-		require('tailwindcss'),
-    	require('autoprefixer'),
-		require('@tailwindcss/line-clamp'),
-	],
 }

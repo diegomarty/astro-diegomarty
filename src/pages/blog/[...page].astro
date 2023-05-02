@@ -1,0 +1,41 @@
+---
+import { published } from "../../data/post";
+import PostCard from "../../components/posts/PostCard.astro";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths({ paginate }: any) {
+  const markdownFiles = await Astro.glob("../../posts/*.mdx");
+  const posts = published(markdownFiles);
+  return paginate(posts, { pageSize: 4 });
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
+---
+
+<Layout
+  title="Blog"
+  description="Manténgase informado sobre las últimas tendencias y técnicas de desarrollo web con el blog de Diego Marty. Como desarrollador junior experto en el uso de PHP, Symfony, Next.js y Tailwind CSS, Diego Marty comparte sus conocimientos y experiencias sobre varios temas de desarrollo front-end y back-end. Visite la página del blog para leer más y descubrir nuevas formas de mejorar sus habilidades como desarrollador."
+  prose={true}
+>
+  <h1>Blog</h1>
+  <div>
+    {page.data.map((post: any) => <PostCard post={post} />)}
+  </div>
+  <div class="flex flex-row justify-center font-semibold mt-4">
+    Page {page.currentPage} / {page.lastPage}
+  </div>
+  <div class="btn-group grid grid-cols-2 w-2/3 sm:w-1/2 mx-auto mt-4">
+    <a
+      href={page.url.prev}
+      class={`btn btn-outline ${page.url.prev ? "" : "btn-disabled"}`}
+    >
+      Previous
+    </a>
+
+    <a
+      href={page.url.next}
+      class={`btn btn-outline ${page.url.next ? "" : "btn-disabled"}`}
+    >
+      Next
+    </a>
+  </div>
+</Layout>

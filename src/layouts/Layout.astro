@@ -1,92 +1,85 @@
 ---
-import ParticleStacksBackgroud from "../components/Particles/ParticleStacksBackgroud.astro";
-import { SEO } from "astro-seo";
+import "../styles/global.css";
+
+import SEO from "../components/SEO.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  siteName?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  twitterHandle?: string;
+  slug?: string;
+  prose?: boolean;
+}
+
+const {
+  title,
+  description,
+  siteName = "diegomarty.com",
+  canonical,
+  ogImage,
+  ogType,
+  twitterHandle,
+  slug,
+  prose = false,
+} = Astro.props as Props;
 ---
 
-<!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="author" content="DiegoMarty" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="keywords"
-      content="Astro.js, framework, página web estática, desarrollador web, DiegoMarty"
-    />
-    <meta name="robots" content="index, follow" />
     <SEO
-      title="DiegoMarty WebDev"
-      description="Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo."
-      openGraph={{
-        basic: {
-          title: "DiegoMarty WebDev + Astro.js",
-          type: "website",
-          image: "/thumbnail.jpg",
-          url: "https://diegomarty.com/",
-        },
-        optional: {
-          description:
-            "Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo.",
-          siteName: "DiegoMarty - Mi sitio web",
-        },
-        image: {
-          alt: "DiegoMarty - Mi sitio web",
-        },
-      }}
-      twitter={{
-        creator: "@Diego_Marty96",
-      }}
-      extend={{
-        link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.ico" }],
-        meta: [
-          {
-            name: "twitter:image",
-            content: "/thumbnail.jpg",
-          },
-          { name: "twitter:title", content: "Hi! Im DiegoMarty" },
-          {
-            name: "twitter:description",
-            content:
-              "Descubre la belleza y la simplicidad de la web con la página creada por DiegoMarty usando el framework #Astro.js. Disfruta de una experiencia de usuario rápida y segura en un sitio web moderno y atractivo.",
-          },
-        ],
+      {...{
+        title,
+        description,
+        siteName,
+        canonical,
+        ogImage,
+        ogType,
+        twitterHandle,
+        slug,
       }}
     />
   </head>
-  <body class="bg-gray-900 text-white w-full">
-    <slot />
-    <ParticleStacksBackgroud />
-    <style is:global>
-      :root {
-        --background-gradient: linear-gradient(
-          45deg,
-          #000814 0%,
-          #001d3d 25%,
-          #003566 50%,
-          #ffc300 75%,
-          #ffd60a 100%
-        );
-      }
-      html {
-        font-family: system-ui, sans-serif;
-        background-color: var(--background-gradient);
-        scroll-behavior: smooth;
-      }
-      code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
-      .bg-clip-text {
-        background-clip: text;
-        -webkit-background-clip: text;
-      }
 
-      @media (max-width: 768px) {
-        div#bmc-wbtn {
-          display: none !important;
+  <body class="bg-gray-900 text-white w-full">
+    <Header />
+    <div class="flex-grow w-full max-w-3xl justify-center mx-auto">
+      <div class="px-4 pt-4 md:pt-8">
+        {
+          prose ? (
+            <div class="min-w-full animate-content-fade prose prose-lg">
+              <slot />
+            </div>
+          ) : (
+            <div class="min-w-full animate-content-fade">
+              <slot />
+            </div>
+          )
         }
-      }
-    </style>
+      </div>
+    </div>
+
+    <Footer />
+    <!-- FOUC fix -->
+    <script src="../scripts/fouc.ts"></script>
+    <!-- Buy me a coffee -->
+    <script
+      is:inline
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="diegomarty"
+      data-description="Support me on Buy me a coffee!"
+      data-message=""
+      data-color="#ffd60a"
+      data-position="Right"
+      data-x_margin="5"
+      data-y_margin="5"
+    ></script>
   </body>
 </html>
