@@ -34,11 +34,11 @@ npm run build
 
 ### 💻 Lighthouse on Pc
 
-![Seo Results on Lighthouse](public/Sassets/thumbnails/SeoPc.png)
+![Seo Results on Lighthouse](public/assets/thumbnails/SeoPc.png)
 
 ### 📱 Lighthouse on Mobile
 
-![Seo Results on Lighthouse](public/Sassets/thumbnails/SeoMobile.png)
+![Seo Results on Lighthouse](public/assets/thumbnails/SeoMobile.png)
 
 ## 📁 Estructura de directorios
 
