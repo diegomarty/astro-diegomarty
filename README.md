@@ -5,6 +5,7 @@
 - Responsive
 - Autogenerate blogs post OG images
 - .mdx or .md files for blog
+- Comments sections on blog
 - Animated background with programing logos
 - Animated bubbles on github image profile and personal image
 - Socials & Resume
