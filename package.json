@@ -18,7 +18,7 @@
     "@astrojs/tailwind": "^3.0.0",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
+    "@types/react-dom": "^18.2.1",
     "astro": "^2.0.17",
     "astro-og-canvas": "^0.1.6",
     "astro-seo": "^0.7.0",
