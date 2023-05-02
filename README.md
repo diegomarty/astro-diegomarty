@@ -1,30 +1,74 @@
-# DiegoMarty Astro Web
+# DiegoMarty Astro.js Web Portfolio  y Blog
 
-This is my website made with astro.js to practice and learn.
+👉 Porfolio website with personal and contact inforamation, projects showcase and a blog.
 
-## How to run
+- Responsive
+- Autogenerate blogs post OG images
+- .mdx or .md files for blog
+- Animated background with programing logos
+- Animated bubbles on github image profile and personal image
+- Socials & Resume
+- Buy me a coffe button ( on desktop ) ☕
+- Pokefan
+
+Feel free to contribute, open issues or PRs, i like [gitmoji](https://marketplace.visualstudio.com/items?itemName=seatonjiang.gitmoji-vscode) for commits
+
+## 🚀 How to run the project
 
 ```bash
 npm install
 npm run dev
 ```
 
-## How to build
+## 🏗️ How to compile
 
 ```bash
 npm run build
 ```
 
-## Hosted on
+## 🌐 Hosted on
 
-[https://vercel.com/diegomarty/astro-diegomarty](https://vercel.com/diegomarty/astro-diegomarty)
+[Diegomarty.com](https://diegomarty.com)
 
-## SEO results
+## 📊 SEO results
 
-### Lighthouse on Pc
+### 💻 Lighthouse on Pc
 
-![Seo Results on Lighthouse](public/SeoPc.png)
+![Seo Results on Lighthouse](public/Sassets/thumbnails/SeoPc.png)
 
-### Lighthouse on Mobile
+### 📱 Lighthouse on Mobile
 
-![Seo Results on Lighthouse](public/SeoMobile.png)
+![Seo Results on Lighthouse](public/Sassets/thumbnails/SeoMobile.png)
+
+## 📁 Estructura de directorios
+```bash
+├───.github
+│   └───workflows
+├───.vscode
+├───public
+│   ├───assets
+│   │   ├───posts
+│   │   ├───svgs
+│   │   └───thumbnails
+│   └───icons
+│       ├───android
+│       └───ios
+├───scripts
+└───src
+    ├───components
+    │   ├───about
+    │   ├───decoration
+    │   ├───particles
+    │   ├───posts
+    │   ├───proyects
+    │   ├───stacks
+    │   └───utilities
+    ├───data
+    ├───layouts
+    ├───pages
+    │   ├───blog
+    │   └───open-graph
+    ├───posts
+    ├───scripts
+    └───styles
+```
