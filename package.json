@@ -19,7 +19,7 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "astro": "^2.0.17",
+    "astro": "^2.5.5",
     "astro-og-canvas": "^0.1.6",
     "astro-seo": "^0.7.0",
     "daisyui": "^2.51.3",
