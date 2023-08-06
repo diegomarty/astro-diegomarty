@@ -12,8 +12,8 @@ export const navItems = [
       label: 'Stacks',
     },
     {
-      href: '/#proyects',
-      label: 'Proyects',
+      href: '/#projects',
+      label: 'Projects',
     },  
   ];
   

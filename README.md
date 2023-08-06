@@ -62,7 +62,7 @@ npm run build
     │   ├───decoration
     │   ├───particles
     │   ├───posts
-    │   ├───proyects
+    │   ├───projects
     │   ├───stacks
     │   └───utilities
     ├───data
