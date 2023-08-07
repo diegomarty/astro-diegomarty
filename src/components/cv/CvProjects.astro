@@ -1,4 +1,5 @@
 ---
+import ActionButton from "./ActionButton.astro";
 export interface Props {
   title: string;
   body: string;
@@ -21,25 +22,7 @@ const {
 <div class="text-md mb-4">
   <div class="text-xl font-bold mb-2">
     {title}
-    <a
-      href={href}
-      class="inline-flex bg-amber-400 rounded-lg p-1 hover:bg-white hover:text-amber-400 text-gray-800 float-right"
-    >
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill="none"
-          stroke="#000000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M9 4h10v14a2 2 0 0 1-2 2H9m3-5l3-3m0 0l-3-3m3 3H5"></path>
-      </svg>
-    </a>
+    <ActionButton href={href} type="link" />
   </div>
   <div class="mb-4">
     <p class="text-xl mb-2">
@@ -55,7 +38,7 @@ const {
       }
       -
       {isOpenSource ? <span class="text-blue-500"> OpenSource</span> : ""}
-      {isDevelopment ? <span class="text-orange-500"> Development</span> : ""}
+      {isDevelopment ? <span class="text-orange-500"> En desarrollo</span> : ""}
     </p>
   </div>
 </div>

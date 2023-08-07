@@ -5,6 +5,7 @@ import HystoricalWork from "../components/cv/HystoricalWork.astro";
 import Education from "../components/cv/Education.astro";
 
 import "../styles/global.css";
+import ActionButton from "../components/cv/ActionButton.astro";
 ---
 
 <Layout>
@@ -25,45 +26,18 @@ import "../styles/global.css";
       <div class="col-span-2 text-center">
         <h1 class="text-4xl font-bold mb-4">DIEGO MARTÍN SÁNCHEZ</h1>
         <p class="text-lg mb-4">Desarrollador Full Stack</p>
-        <a
-          href="mailto:contacto@diegomarty.com"
-          class="inline-flex bg-amber-400 rounded-lg py-2 px-3 hover:bg-white hover:text-amber-400 text-gray-800"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="#000000"
-              d="M4 20q-.825 0-1.413-.588T2 18V6q0-.825.588-1.413T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.588 1.413T20 20H4Zm8-7L4 8v10h16V8l-8 5Zm0-2l8-5H4l8 5ZM4 8V6v12V8Z"
-            ></path>
-          </svg>
-        </a>
-        <a
+        <ActionButton href="mailto:contacto@diegomarty.com" type="mail" />
+        <ActionButton
           href="https://drive.google.com/file/d/1lwfWgMuhKMw3itSNp5XhdggaO4xoXbRT/view?usp=drive_link"
-          class="inline-flex bg-amber-400 rounded-lg py-2 px-3 hover:bg-white hover:text-amber-400 text-gray-800 ml-2"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="#000000"
-              d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11l-5 5Zm-6 4q-.825 0-1.413-.588T4 18v-3h2v3h12v-3h2v3q0 .825-.588 1.413T18 20H6Z"
-            ></path>
-          </svg>
-        </a>
+          type="download"
+        />
       </div>
 
       <div class="col-span-3">
         <h2 class="text-3xl font-bold mb-4">SOBRE MI</h2>
         <p class="text-md mb-2">
           Apasionado por las soluciones tecnológicas y el desarrollo de
-          aplicaciones robustas. Siempre buscando innovar y mantenerse a la
+          aplicaciones robustas. Siempre buscando innovar y mantenerme a la
           última de las tendencias en desarrollo web. Comprometido con la
           entrega de soluciones óptimas y eficientes.
         </p>
@@ -160,7 +134,7 @@ import "../styles/global.css";
         <CvProjects
           title="WEB PERSONAL"
           body="Web personal realizada con Astro.js, que incluye mi información personal, mi curriculum y un pequeño blog generado desde archivos md."
-          href="Diegomarty.com"
+          href="https://Diegomarty.com"
           isPublic={true}
           isOpenSource={true}
         />
