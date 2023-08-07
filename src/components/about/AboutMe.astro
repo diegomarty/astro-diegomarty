@@ -17,7 +17,12 @@ import RRSS from "./RRSS.astro";
             height="320px"
           />
         </div>
-        <div>
+        <div class="relative">
+          <span
+            class="absolute bg-amber-400 rounded-full py-2 px-3 text-gray-800 text-sm font-bold shadow-md z-10 right-0 top-0 rotate-12"
+          >
+            Github Avatar
+          </span>
           <img
             src="https://github.com/diegomarty.png"
             alt="githubAvatar"
@@ -34,7 +39,7 @@ import RRSS from "./RRSS.astro";
           <div class="flex justify-center mt-8">
             <a
               href="/cv"
-              class="inline-flex bg-amber-400 rounded-lg py-2 px-3 hover:bg-white hover:text-amber-400 text-gray-800"
+              class="inline-flex bg-amber-400 rounded-lg py-2 px-3 hover:bg-white hover:text-amber-400 text-gray-800 font-bold"
             >
               + Info in my CV
             </a>
