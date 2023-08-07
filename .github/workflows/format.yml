@@ -28,9 +28,3 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.3
-        with:
-          prettier_plugins: "prettier-plugin-astro"
-          prettier_options: --write **/*.{js,md,astro,jsx}
-          commit_message: '💚 Auto Code format by prettier'
