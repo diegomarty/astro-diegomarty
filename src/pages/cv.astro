@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CvProjects from "../components/cv/CvProjects.astro";
+import HystoricalWork from "../components/cv/HystoricalWork.astro";
+import Education from "../components/cv/Education.astro";
+
 import "../styles/global.css";
 ---
 
@@ -60,7 +64,7 @@ import "../styles/global.css";
         <p class="text-md mb-2">
           Apasionado por las soluciones tecnológicas y el desarrollo de
           aplicaciones robustas. Siempre buscando innovar y mantenerse a la
-          vanguardia de las tendencias en desarrollo web. Comprometido con la
+          última de las tendencias en desarrollo web. Comprometido con la
           entrega de soluciones óptimas y eficientes.
         </p>
       </div>
@@ -77,181 +81,105 @@ import "../styles/global.css";
 
       <div class="col-span-3">
         <h2 class="text-3xl font-bold mb-4">HISTORIAL PROFESIONAL</h2>
-        <span class="text-xl font-bold mb-2">
-          WEB FULLSTACK DEVELOPER | Internacional Web | Jun 2020 - Actual
-        </span>
 
-        <p class="text-md mb-2">
-          <div class="mb-2">
-            <span class="text-xl mb-4">Especialidades técnicas:</span>
+        <HystoricalWork
+          title="WEB FULLSTACK DEVELOPER | Internacional Web"
+          date="Jun 2020 - Actual"
+          tags={["PHP", "Next.js", "Symfony", "DDD", "MVC", "Docker"]}
+        >
+          <div slot="description">
+            <p class="text-md mb-2">
+              <strong class="font-semibold">Desarrollo:</strong> Desarrollo de aplicaciones
+              web y APIs REST con PHP y Next.js, utilizando arquitectura hexagonal
+              basada en Domain-Driven Design (DDD) y MVC.
+            </p>
+            <p class="text-md mb-2">
+              <strong class="font-semibold">Lenguajes y Frameworks:</strong> PHP,
+              Next.js, y Symfony.
+            </p>
+            <p class="text-md mb-2">
+              <strong class="font-semibold">Arquitectura:</strong> Experiencia en
+              arquitectura hexagonal basada en Domain-Driven Design (DDD) y MVC.
+            </p>
+            <p class="text-md mb-2">
+              <strong class="font-semibold">Despliegue y Gestión:</strong> Experiencia
+              en implementación de aplicaciones, versionado de APIs y gestión de
+              proyectos.
+            </p>
+            <p class="text-md mb-2">
+              <strong class="font-semibold">Herramientas y Entorno:</strong> Uso
+              avanzado de Docker para desarrollo local, documentación con Swagger.
+            </p>
           </div>
-          <strong class="font-semibold">Lenguajes y Frameworks:</strong> PHP, Next.js,
-          y Symfony.
-        </p>
-        <p class="text-md mb-2">
-          <strong class="font-semibold">Arquitectura:</strong> Experiencia en arquitectura
-          hexagonal basada en Domain-Driven Design (DDD) y MVC.
-        </p>
-        <p class="text-md mb-2">
-          <strong class="font-semibold">Despliegue y Gestión:</strong> Experiencia
-          en implementación de aplicaciones, versionado de APIs y gestión de proyectos.
-        </p>
-        <p class="text-md mb-2">
-          <strong class="font-semibold">Herramientas y Entorno:</strong> Uso avanzado
-          de Docker para desarrollo local, documentación con Swagger.
-        </p>
-      </div>
+        </HystoricalWork>
 
-      <div class="col-span-3">
-        <div class="mb-2">
-          <span class="text-xl font-bold">
-            PRACTICAS INGENIERO TELECOMUNICACIONES | Indra | Mar 2020 - Abr 2020
-          </span>
-        </div>
-        <div class="mb-2">
-          <p class="text-md">
-            Realicé prácticas en el ámbito de las telecomunicaciones,
-            centrándome en implementaciones para el sector telco. Durante este
-            periodo, trabajé con herramientas como Clarive y Jenkins.
-          </p>
-        </div>
+        <HystoricalWork
+          title="PRACTICAS TELECOMUNICACIONES | Indra"
+          date="Mar 2020 - Abr 2020"
+          tags={["Clarive", "Jenkins"]}
+        >
+          <div slot="description">
+            <p class="text-md mb-2">
+              <strong class="font-semibold">Desarrollo:</strong> Desarrollo de implementaciones
+              para el sector telco.
+            </p>
+            <p class="text-md mb-2">
+              <strong class="font-semibold"
+                >Herramientas y plataformas DevOps:</strong
+              > Clarive y Jenkins.
+            </p>
+          </div>
+        </HystoricalWork>
       </div>
 
       <div class="col-span-3">
         <h2 class="text-3xl font-bold mb-4">EDUCACIÓN Y FORMACIÓN</h2>
 
-        <div class="text-md mb-2">
-          <span class="text-xl font-bold mb-2">TÍTULO DE BACHILLERATO</span>
-          <div class="mb-2">
-            <span class="text-xl mb-4">
-              Instituto Lucía de Medrano - Titulado en 2017
-            </span>
+        <Education
+          title="TÍTULO DE BACHILLERATO"
+          location="Instituto Lucía de Medrano - Titulado en 2017"
+        >
+          <div slot="description">
+            <strong class="font-semibold">Especialidad:</strong> Ciencias y Tecnología.
           </div>
-          <strong class="font-semibold">Especialidad:</strong> Ciencias y Tecnología.
-        </div>
+        </Education>
 
-        <div class="text-md mb-2">
-          <span class="text-xl font-bold mb-2">
-            GRADO SUPERIOR DE DESARROLLO DE APLICACIONES MULTIPLATAFORMA
-          </span>
-          <div class="mb-2">
-            <span class="text-xl mb-4">
-              Colegio Santísima Trinidad - Titulado en 2020
-            </span>
+        <Education
+          title="GRADO SUPERIOR DE DESARROLLO DE APLICACIONES MULTIPLATAFORMA"
+          location="Colegio Santísima Trinidad - Titulado en 2020"
+        >
+          <div slot="description">
+            <strong class="font-semibold">Especialidad:</strong> Ciencias y Tecnología.
           </div>
-        </div>
+        </Education>
       </div>
 
       <div class="col-span-3">
         <h2 class="text-3xl font-bold mb-4">MIS PROYECTOS</h2>
 
-        <div class="text-md mb-4">
-          <div class="text-xl font-bold mb-2">
-            WEB PERSONAL
-            <a
-              href="Diegomarty.com"
-              class="inline-flex bg-amber-400 rounded-lg p-1 hover:bg-white hover:text-amber-400 text-gray-800 float-right"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="none"
-                  stroke="#000000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 4h10v14a2 2 0 0 1-2 2H9m3-5l3-3m0 0l-3-3m3 3H5"></path>
-              </svg>
-            </a>
-          </div>
-          <div class="mb-4 ml-2">
-            <p class="text-xl mb-2">
-              Web personal realizada con <strong>Astro.js</strong>, que incluye
-              mi información personal, mi curriculum y un pequeño blog generado
-              desde archivos md.
-            </p>
-            <p>
-              <span class="text-green-500">Finalizado</span> -
-              <span>OpenSource</span>
-            </p>
-          </div>
-        </div>
+        <CvProjects
+          title="WEB PERSONAL"
+          body="Web personal realizada con Astro.js, que incluye mi información personal, mi curriculum y un pequeño blog generado desde archivos md."
+          href="Diegomarty.com"
+          isPublic={true}
+          isOpenSource={true}
+        />
 
-        <div class="text-md mb-2">
-          <div class="text-xl font-bold mb-2">
-            APLICACIÓN QR
-            <a
-              href="https://proyectqr-riuhwp6on-diegomarty.vercel.app/"
-              class="inline-flex bg-amber-400 rounded-lg p-1 hover:bg-white hover:text-amber-400 text-gray-800 float-right"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="none"
-                  stroke="#000000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 4h10v14a2 2 0 0 1-2 2H9m3-5l3-3m0 0l-3-3m3 3H5"></path>
-              </svg>
-            </a>
-          </div>
-          <div class="mb-4 ml-2">
-            <p class="text-xl mb-2">
-              Una pequeña aplicación hecha con <strong>Next.js 12</strong> en la
-              que poder subir una carta de un restaurante y hacer pedidos a este,
-              accediendo como un usuario.
-            </p>
-            <p>
-              <span class="text-green-500">Publicada</span> - <span
-                class="text-orange-500">En desarrollo</span
-              >
-            </p>
-          </div>
-        </div>
+        <CvProjects
+          title="APLICACIÓN QR"
+          body="Una pequeña aplicación hecha con Next.js 12 en la que poder subir una carta de un restaurante y hacer pedidos a este, accediendo como un usuario."
+          href="https://proyectqr-riuhwp6on-diegomarty.vercel.app/"
+          isPublic={true}
+          isDevelopment={true}
+        />
 
-        <div class="text-md mb-2">
-          <div class="text-xl font-bold mb-2">
-            POKEDLE
-            <a
-              href="https://pokedle.diegomarty.com/"
-              class="inline-flex bg-amber-400 rounded-lg p-1 hover:bg-white hover:text-amber-400 text-gray-800 float-right"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="none"
-                  stroke="#000000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 4h10v14a2 2 0 0 1-2 2H9m3-5l3-3m0 0l-3-3m3 3H5"></path>
-              </svg>
-            </a>
-          </div>
-          <div class="mb-4 ml-2">
-            <p class="text-xl mb-2">
-              Una aplicación realizada en <strong>Next.js 13</strong>, y la
-              <strong>PokeApi</strong>, es una aplicación basada en Wordle y
-              Pokémon
-            </p>
-            <p>
-              <span class="text-green-500">Publicada</span>
-            </p>
-          </div>
-        </div>
+        <CvProjects
+          title="POKEDLE"
+          body="Una aplicación realizada en Next.js 13, y la PokeApi, es una aplicación basada en Wordle y Pokémon"
+          href="https://pokedle.diegomarty.com/"
+          isPublic={true}
+          isDevelopment={true}
+        />
       </div>
     </div>
   </div>
