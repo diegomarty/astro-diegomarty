@@ -23,7 +23,7 @@
     "astro-og-canvas": "^0.1.8",
     "astro-seo": "^0.7.5",
     "daisyui": "^2.51.3",
-    "openai": "^3.2.0",
+    "openai": "^4.24.7",
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
